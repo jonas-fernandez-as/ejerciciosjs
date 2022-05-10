@@ -63,7 +63,7 @@
 */
 
 //1)-    
- function cuentaCadena (frase = "", number = 0) {
+/* function cuentaCadena (frase = "", number = 0) {
 
     for (let i = 0; i < frase.length; i++) {
                     number++
@@ -86,7 +86,20 @@
     :console.info(`La cadena ${frase} tiene ${number} caracteres`)
  }
     cuentaCadena1()
-    cuentaCadena1("pepe es un tipo")
+    cuentaCadena1("pepe es un tipo") */
+//2)
+  const subEstring=(estring="",i=undefined,) =>{
+    
+   if (!estring){ console.warn("La cadena esta vacia")};
+   if (!i) {console.warn("No hay corte definido,ingrese un numero a partir de 0")}
+   else {console.info(estring.slice(i))}
+       
+   
+   } 
+  
+  subEstring("La vida es la vida",3)
+  subEstring("La vida es la vida")
+  subEstring("")
     
 
 
