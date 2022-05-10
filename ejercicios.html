@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,49 +10,85 @@
 
 <body>
     <H1>Primer ejercicio JS</H1>
-  <p>  1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
-2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
-3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
-4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo. </p>
+    <p> 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo")
+        devolverá 10.
+        2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe.
+        miFuncion("Hola Mundo", 4) devolverá "Hola".
+        3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe.
+        miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+        4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola
+        Mundo Hola Mundo. </p>
+
+
+5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
     <script>
-        
-        /*
-          function contado() {
-                let contador = 0
-                let c = "hola como estas"
-                for (let i = 0; i < c.length; i++) {
-                    contador++
-                }
-                console.log(contador)
+
+/*
+        function contado() {
+            let contador = 0
+            let c = "hola como estas"
+            for (let i = 0; i < c.length; i++) {
+                contador++
             }
-            contado()
- 
+            console.log(contador)
+        }
+        contado()
 
-            function cadena() {
-                let cadena1 = `me gusta el chori`
-                console.log(cadena1.substring(0, 8))
 
-            }
+        function cadena() {
+            let cadena1 = `me gusta el chori`
+            console.log(cadena1.substring(0, 8))
 
-            cadena()
-        */
+        }
 
-        /*function stringArray () {
-            let string= "si tu viejo es zapatero"
-            console.log (string.split([" "]))
+        cadena()
+
+
+        function stringArray() {
+            let string = "si tu viejo es zapatero"
+            console.log(string.split([" "]))
         }
         stringArray()
 
-        function stringRepeat () {
+        function stringRepeat() {
             let cadenaRepetida = "Hola perro primo"
-            console.log (cadenaRepetida.repeat(3))
+            console.log(cadenaRepetida.repeat(3))
         }
 
-        stringRepeat()*/
+        stringRepeat()
+*/
 
-        
-         
-         
+//1)-    
+ function cuentaCadena (frase = "", number = 0) {
+
+    for (let i = 0; i < frase.length; i++) {
+                    number++
+    }
+
+    if (!frase) { console.warn("La frase no esta definida"); }
+    else { console.info(`La cadena ${frase} tiene ${number} caracteres`) }
+
+ }
+    cuentaCadena()
+    cuentaCadena("me gusta tu abuela")
+
+ const cuentaCadena1 = (frase = "", number = 0) => {
+
+    for (let i = 0; i < frase.length; i++) {
+                    number++
+    }
+   
+    (!frase) ? console.warn("La frase no esta definida")
+    :console.info(`La cadena ${frase} tiene ${number} caracteres`)
+ }
+    cuentaCadena1()
+    cuentaCadena1("pepe es un tipo")
+    
+
 
 
 
