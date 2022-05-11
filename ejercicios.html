@@ -20,134 +20,183 @@
         Mundo Hola Mundo. </p>
 
 
-5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
-6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
-7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
-8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+    5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá
+    "odnuM aloH".
+    6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe.
+    miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+    7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que
+    en otro), pe. mifuncion("Salas") devolverá true.
+    8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3,
+    xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5.
 
     <script>
 
-/*
-        function contado() {
-            let contador = 0
-            let c = "hola como estas"
-            for (let i = 0; i < c.length; i++) {
-                contador++
+        /*
+                function contado() {
+                    let contador = 0
+                    let c = "hola como estas"
+                    for (let i = 0; i < c.length; i++) {
+                        contador++
+                    }
+                    console.log(contador)
+                }
+                contado()
+        
+        
+                function cadena() {
+                    let cadena1 = `me gusta el chori`
+                    console.log(cadena1.substring(0, 8))
+        
+                }
+        
+                cadena()
+        
+        
+                function stringArray() {
+                    let string = "si tu viejo es zapatero"
+                    console.log(string.split([" "]))
+                }
+                stringArray()
+        
+                function stringRepeat() {
+                    let cadenaRepetida = "Hola perro primo"
+                    console.log(cadenaRepetida.repeat(3))
+                }
+        
+                stringRepeat()
+        */
+
+        //1)-    
+        /* function cuentaCadena (frase = "", number = 0) {
+        
+            for (let i = 0; i < frase.length; i++) {
+                            number++
             }
-            console.log(contador)
+        
+            if (!frase) { console.warn("La frase no esta definida"); }
+            else { console.info(`La cadena ${frase} tiene ${number} caracteres`) }
+        
+         }
+            cuentaCadena()
+            cuentaCadena("me gusta tu abuela")
+        
+         const cuentaCadena1 = (frase = "", number = 0) => {
+        
+            for (let i = 0; i < frase.length; i++) {
+                            number++
+            }
+           
+            (!frase) ? console.warn("La frase no esta definida")
+            :console.info(`La cadena ${frase} tiene ${number} caracteres`)
+         }
+            cuentaCadena1()
+            cuentaCadena1("pepe es un tipo") */
+        //2)
+        /*const subEstring=(estring="",i=undefined,) =>{
+          
+         if (!estring){ console.warn("La cadena esta vacia")}
+         else {console.info(estring.slice(i))}
+             
+         
+         } 
+        
+        subEstring("La concha de la lora ,perri",7)
+        subEstring("La concha de la lora, perri")
+        subEstring("") */
+
+        /* const subEstring1=(estring="",i=undefined,) =>{
+          
+         (!estring)? console.warn("La cadena esta vacia")
+         : console.info(estring.slice(i))
+             
+         
+         } 
+        
+        subEstring1("La concha de la lora ,perri",7)
+        subEstring1("La concha de la lora, perri")
+        subEstring1("") */
+        //3)
+
+        /*const stringArray = (estrin = "") => {
+              (!estrin) ? console.warn("La cadena esta vacia")
+              : console.info(estrin.split([" "]))
         }
-        contado()
+        stringArray("me gusta tu hermana como a vos la japi")
+        stringArray()*/
 
+        //4)
+        /* const stringRepeat = (cadenaRepetida="",n=undefined) => {
+          if(!cadenaRepetida) {return console.warn("No has ingresado ninguna cadena")}
+          if (!n) {return console.warn(`La cadena ${cadenaRepetida} no tiene numero de repeticion`)}
+          else console.info(cadenaRepetida.repeat(n))
+               console.info(`La cadena ${cadenaRepetida} se ha repetido ${n} veces`)
+         }
+       
+         stringRepeat()
+         stringRepeat("Pepito es un chaboncito ")
+         stringRepeat("Caca en ayuna ",9) */
 
-        function cadena() {
-            let cadena1 = `me gusta el chori`
-            console.log(cadena1.substring(0, 8))
-
+        /*const stringRepeat = (cadenaRepetida="",n=undefined) => {
+         if(!cadenaRepetida) {return console.warn("No has ingresado ninguna cadena")}
+         if (!n) {return console.warn(`La cadena ${cadenaRepetida} no tiene numero de repeticion`)}
+         if (n<0) {return console.warn("No se permiten numeros negativos")}
+         else 
+              for (let i=1; i <= n; i++){
+                console.info(cadenaRepetida)
+              }
+              console.info(`La cadena ${cadenaRepetida} se ha repetido ${n} veces`)
         }
-
-        cadena()
-
-
-        function stringArray() {
-            let string = "si tu viejo es zapatero"
-            console.log(string.split([" "]))
-        }
-        stringArray()
-
-        function stringRepeat() {
-            let cadenaRepetida = "Hola perro primo"
-            console.log(cadenaRepetida.repeat(3))
-        }
-
+      
         stringRepeat()
-*/
+        stringRepeat("Pepito es un chaboncito",-1)
+        stringRepeat("Pepito es un chaboncito ")  
+        stringRepeat("Pepito es un chaboncito",9)*/
 
-//1)-    
-/* function cuentaCadena (frase = "", number = 0) {
+        //5)Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
-    for (let i = 0; i < frase.length; i++) {
-                    number++
-    }
-
-    if (!frase) { console.warn("La frase no esta definida"); }
-    else { console.info(`La cadena ${frase} tiene ${number} caracteres`) }
-
- }
-    cuentaCadena()
-    cuentaCadena("me gusta tu abuela")
-
- const cuentaCadena1 = (frase = "", number = 0) => {
-
-    for (let i = 0; i < frase.length; i++) {
-                    number++
-    }
-   
-    (!frase) ? console.warn("La frase no esta definida")
-    :console.info(`La cadena ${frase} tiene ${number} caracteres`)
- }
-    cuentaCadena1()
-    cuentaCadena1("pepe es un tipo") */
-//2)
-  /*const subEstring=(estring="",i=undefined,) =>{
-    
-   if (!estring){ console.warn("La cadena esta vacia")}
-   else {console.info(estring.slice(i))}
-       
-   
-   } 
-  
-  subEstring("La concha de la lora ,perri",7)
-  subEstring("La concha de la lora, perri")
-  subEstring("") */
-
-  /* const subEstring1=(estring="",i=undefined,) =>{
-    
-   (!estring)? console.warn("La cadena esta vacia")
-   : console.info(estring.slice(i))
-       
-   
-   } 
-  
-  subEstring1("La concha de la lora ,perri",7)
-  subEstring1("La concha de la lora, perri")
-  subEstring1("") */
-//3)
-   
-  /*const stringArray = (estrin = "") => {
-        (!estrin) ? console.warn("La cadena esta vacia")
-        : console.info(estrin.split([" "]))
-  }
-  stringArray("me gusta tu hermana como a vos la japi")
-  stringArray()*/
-
-//4)
- /* const stringRepeat = (cadenaRepetida="",n=undefined) => {
-   if(!cadenaRepetida) {return console.warn("No has ingresado ninguna cadena")}
-   if (!n) {return console.warn(`La cadena ${cadenaRepetida} no tiene numero de repeticion`)}
-   else console.info(cadenaRepetida.repeat(n))
-        console.info(`La cadena ${cadenaRepetida} se ha repetido ${n} veces`)
-  }
-
-  stringRepeat()
-  stringRepeat("Pepito es un chaboncito ")
-  stringRepeat("Caca en ayuna ",9) */
-
-  /*const stringRepeat = (cadenaRepetida="",n=undefined) => {
-   if(!cadenaRepetida) {return console.warn("No has ingresado ninguna cadena")}
-   if (!n) {return console.warn(`La cadena ${cadenaRepetida} no tiene numero de repeticion`)}
-   if (n<0) {return console.warn("No se permiten numeros negativos")}
-   else 
-        for (let i=1; i <= n; i++){
-          console.info(cadenaRepetida)
+     /*   const invertString = (str = "") => {
+            if (!str) { console.warn("No hay cadena de caracteres") }
+            else {
+                console.info(str.split("").reverse().join(" "))
+            };
         }
-        console.info(`La cadena ${cadenaRepetida} se ha repetido ${n} veces`)
-  }
+        invertString("")
+        invertString("la concha de tu madre pone todo al revez")   */
+       
+        /*const repeatedWord=(texto="",word="") =>{
+            if (!texto) {return console.warn("No hay texto que analizar")}
+            if (!word)  {return console.warn("No hay palabra para analizar su repetición")}
+            else{
+             
+             let arrayAnalisis =texto.split(" ");
+             let contador = 0
+        
+             for (i=0;i<= arrayAnalisis.length;i++ ){
+                
+             if (arrayAnalisis[i] === word){ contador++}
+             
+            }
+            console.info(`La palabra se repite ${contador} veces`)
+        }
+        }
+        repeatedWord("","a")
+        repeatedWord("lasdqwdokqjwpo easeae")
+        repeatedWord("Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion Hola Mundo devolverá 10.","una")*/
 
-  stringRepeat()
-  stringRepeat("Pepito es un chaboncito",-1)
-  stringRepeat("Pepito es un chaboncito ")
-  stringRepeat("Pepito es un chaboncito",9)*/
- 
+//7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que
+//en otro), pe. mifuncion("Salas") devolverá true.
+
+       /*const palindromo = (word="") =>{
+          
+          let reverseword = word.split("").reverse().join("")
+          if (!word) {console.warn("No hay ninguna palabra")}
+          if (word.toLowerCase === reverseword.toLowerCase  ) {console.info(`La palabra ${word} es un palindromo`)}
+          else console.info(`La palabra ${word} no es un palindromo`)
+       }   
+      palindromo("Coco")*/
+
+//8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3,
+//xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5.
 
 
     </script>
