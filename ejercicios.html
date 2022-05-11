@@ -29,9 +29,16 @@
     8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3,
     xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5.
     9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
-10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
-11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+    10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en
+    otro), pe. miFuncion(2002) devolverá true.
+    11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como
+    el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
 
+    12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no,
+    pe. miFuncion(7) devolverá true.
+    13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+    14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá
+    32°F.
     <script>
 
         /*
@@ -238,6 +245,8 @@
 
 //randomArbitrary()
 //randomArbitrary(501,600)
+   const aleatory = () => { console.info(Math.round((Math.random()*100)+500))}
+   //aleatory()
 //10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
    
     const capicua = (number=undefined) =>{
@@ -246,19 +255,45 @@
           (reversenumber == number  )? console.info(` ${number} Es capicua`)
           : console.info(` ${number} No es capicua`)
     }   
-      //capicua("808")
+
+//capicua("808")
+
+
+    const capicua1 = (number=0) =>{
+          if (!number) {return console.warn("No ingresaste ningun numero")}
+          if (typeof number !== "number") {return console.error("Ingresa un valor que sea numero")}
+          number =number.toString();
+          let reversenumber = number.split("").reverse().join("");
+          (reversenumber === number  )? console.info(` Es capicua: Numero original ${number} Numero al reves ${reversenumber}`)
+          : console.info(`No es capicua: Numero original ${number} Numero al reves ${reversenumber}`)
+    }   
+    //capicua1()  
+    //capicua1("9009")
+    //capicua1(9009)
+    //capicua1(9099)
 //11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
 
     const factorial =(number=undefined) =>{
+        if (number === undefined) {return console.warn("No has ingresado un numero")}
+        if (number === 0) {return console.warn ("No puedes ingresar 0")}
+        if (Math.sign(number)===-1) {return console.warn("El numero no puede ser negativo")}
+        if (typeof number !== "number") {return console.error(`El valor ${number} no es un numero`)}
+        else{
         let f=number
         for(let i=1; i<number-1; i++){
             f+=f*i;
         }
-        (!number)? console.warn("No has ingresado ningun numero")
-        :
-        console.info(`El factorial de ${number} es ${f}.`)
+        
+        console.info(`El factorial de ${number} es ${f}.`)}
     }
-    //factorial(6)
+    //factorial(8)
+    
+    
+    /*otro for para factorial
+    let factorial=1
+    for (let i= numero;i>1 ; i--{
+        factorial*=i
+    }*/
 
     </script>
 </body>
