@@ -286,7 +286,7 @@
         
         console.info(`El factorial de ${number} es ${f}.`)}
     }
-    //factorial(8)
+    //factorial()
     
     
     /*otro for para factorial
@@ -294,6 +294,54 @@
     for (let i= numero;i>1 ; i--{
         factorial*=i
     }*/
+
+
+/*12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no,
+pe. miFuncion(7) devolverá true.*/
+
+     const primo =(number=0) => {
+       if(number===0){return console.warn("El valor ingresado no puede ser 0")}
+       if(typeof number !== "number" ) {return console.error(`El valor ${number} no es un numero`)}
+       else{
+           let flag = 0;
+           for(let i=1; i<=number; i++){
+               if (number%i === 0) {flag++}
+           }
+           (flag=== 2)? console.info(`El numero ${number} es primo`)
+           : console.info(`El numero ${number} no es primo`)
+
+       }
+     }
+    //primo(11)
+
+
+//13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+   
+      const parImpar = (number=undefined) =>{
+       if(number===undefined){return console.warn("El valor no puede estar vacio")}
+       if(typeof number !== "number" ) {return console.error(`El valor ${number} no es un numero`)}
+       
+       else{
+         (number%2===0)? console.info(`El numero ${number} es par`)
+         : console.info(`El numero ${number} es impar`)
+       }
+      }
+    //parImpar()
+
+
+//14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá
+//32°F.
+
+     const celsiusFarenheit = (degreesC=undefined) =>{
+         if (degreesC ===undefined) {return console.error("ERROR El valor no puede estar vacio")}
+         if (typeof degreesC !== "number") {return console.error (`ERROR El valor ${degreesC} NO es un numero`)}
+         else{
+              let degreesF=(degreesC*1.8)+32
+              console.info(`El valor de ${degreesC}°C son ${degreesF}°F`)
+         }
+     }
+     //celsiusFarenheit()
+
 
     </script>
 </body>
