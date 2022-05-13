@@ -396,7 +396,7 @@ pe. miFuncion(7) devolverá true.*/
 
     //15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
 
-    const decimalBinary =(decimal=undefined,binary=undefined) =>{
+    const decimalBinary =(decimal=undefined,binary=null) =>{
          
         if (typeof decimal !== "number") {return console.error(`ERROR ${decimal} no es un numero`)}
 
@@ -409,7 +409,7 @@ pe. miFuncion(7) devolverá true.*/
               let b1=0
               let b2=b1.toString()
               let binarytodecimal= 0;
-
+             console.info (cadenabinary)
                 for (let i= 0; i<cadenabinary.length; i++){
                      if (b == false) 
                      {  b=true 
@@ -433,19 +433,23 @@ pe. miFuncion(7) devolverá true.*/
                      if 
                              
                     (cadenabinary[x] == "1") {
-                          numero= Number.x
-                         numero =cadenavalor[x]
-                         binarytodecimal+= cadenavalor[x]}
+                          
+                         numero =Number(cadenavalor[x])
+                         binarytodecimal+= numero}
                     }
 
-                console.info(binarytodecimal,cadenavalor,cadenabinary)
+                
 
                 }
 
-            }
+
+        
+        
+        
+        }
     
 
-    decimalBinary(1,10101)
+    decimalBinary(1,111010101010111101)
     </script>
 </body>
 
