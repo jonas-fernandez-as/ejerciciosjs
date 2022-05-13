@@ -39,6 +39,10 @@
     13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
     14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá
     32°F.
+    15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+    16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+    17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
     <script>
 
         /*
@@ -389,6 +393,59 @@ pe. miFuncion(7) devolverá true.*/
          if (type === "F"|type === "f"){return console.info(`${degree}°F son ${Math.round(((degree-32)*(5/9)))}°C`)}
     }
     //convertDegrees(2,"C")
+
+    //15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+    const decimalBinary =(decimal=undefined,binary=undefined) =>{
+         
+        if (typeof decimal !== "number") {return console.error(`ERROR ${decimal} no es un numero`)}
+
+        
+        if (!/^[0-1]+$/.test(binary)) {console.error("Solo se permite 0 o 1") }
+        else
+            { let cadenabinary = binary.toString().split("");
+              let cadenavalor = binary.toString().split("");
+              let b=false;
+              let b1=0
+              let b2=b1.toString()
+              let binarytodecimal= 0;
+
+                for (let i= 0; i<cadenabinary.length; i++){
+                     if (b == false) 
+                     {  b=true 
+                        b1=1
+                        b2=b1.toString()
+                        cadenavalor[i]=b2; 
+                        console.info(b2,cadenavalor[i]) 
+                     }    
+                        
+                            
+                       
+                     else             
+                      b1=b1*2
+                      b2=b1.toString()
+                      cadenavalor[i]=b2
+                      console.info(b2,cadenavalor[i])
+                    }
+                    let numero = 0
+                    cadenavalor=cadenavalor.reverse()
+                    for (let x= 0; x<cadenabinary.length; x++){
+                     if 
+                             
+                    (cadenabinary[x] == "1") {
+                          numero= Number.x
+                         numero =cadenavalor[x]
+                         binarytodecimal+= cadenavalor[x]}
+                    }
+
+                console.info(binarytodecimal,cadenavalor,cadenabinary)
+
+                }
+
+            }
+    
+
+    decimalBinary(1,10101)
     </script>
 </body>
 
