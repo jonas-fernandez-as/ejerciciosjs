@@ -396,12 +396,12 @@ pe. miFuncion(7) devolverá true.*/
 
     //15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
 
-    const decimalBinary =(decimal=undefined,binary=null) =>{
+    const decimalBinary =(decimal="",binary="") =>{
          
-        if (typeof decimal !== "number") {return console.error(`ERROR ${decimal} no es un numero`)}
+        if (!/^[0-9]+$/.test(decimal)) {return console.error(`ERROR ${decimal} no es un numero`)}
 
         
-        if (!/^[0-1]+$/.test(binary)) {console.error("Solo se permite 0 o 1") }
+        if (!/^[0-1]+$/.test(binary)) {return console.error("Solo se permite 0 o 1") }
         else
             { let cadenabinary = binary.toString().split("");
               let cadenavalor = binary.toString().split("");
@@ -409,14 +409,14 @@ pe. miFuncion(7) devolverá true.*/
               let b1=0
               let b2=b1.toString()
               let binarytodecimal= 0;
-             console.info (cadenabinary)
+             //console.info (cadenabinary)
                 for (let i= 0; i<cadenabinary.length; i++){
                      if (b == false) 
                      {  b=true 
                         b1=1
                         b2=b1.toString()
                         cadenavalor[i]=b2; 
-                        console.info(b2,cadenavalor[i]) 
+                        //console.info(b2,cadenavalor[i]) 
                      }    
                         
                             
@@ -425,7 +425,7 @@ pe. miFuncion(7) devolverá true.*/
                       b1=b1*2
                       b2=b1.toString()
                       cadenavalor[i]=b2
-                      console.info(b2,cadenavalor[i])
+                      //console.info(b2,cadenavalor[i])
                     }
                     let numero = 0
                     cadenavalor=cadenavalor.reverse()
@@ -437,9 +437,51 @@ pe. miFuncion(7) devolverá true.*/
                          numero =Number(cadenavalor[x])
                          binarytodecimal+= numero}
                     }
+                     
+
+                console.info(`El numero binario ${binary} es igual a el numero ${binarytodecimal} en decimal`)
+                
+                
+                let bitdecimal = 0
+                let B3=false
+                let arraydecimal = []
 
                 
+                for(i=0 ; i<decimal ; i++){
+                    if (bitdecimal>decimal){
+                        break
+                    }
+                    if (B3==false){
+                        bitdecimal=1;
+                        B3=true;
+                        //console.info(bitdecimal)
+                        arraydecimal.push(bitdecimal)
+                    }
+                    if (B3=true){
+                        bitdecimal=bitdecimal*2;
+                        //console.info(bitdecimal)
+                        arraydecimal.push(bitdecimal)
+                    }
+                    
+                }
+                let rArrayDecimal=arraydecimal.reverse()
+                let aDecimalToBinary= []
+                let decimalcopy = decimal
+                for(i=0 ;i<rArrayDecimal.length; i++ ){
+                    if (decimalcopy >= rArrayDecimal[i]) {aDecimalToBinary.push(1)
+                    decimalcopy= decimalcopy - rArrayDecimal[i] 
+                    //console.info(decimalcopy)}
+                    }
+                    else  aDecimalToBinary.push(0)
+                    //console.info(decimalcopy)
+                }
+                decimalToBinary=aDecimalToBinary.toString("")
+                patern=","
+                nDecimal=decimalToBinary.replace(new RegExp(patern,"ig"),"")
+                
 
+                console.info(`El numero ${decimal} en decimal equivale a  ${Number(nDecimal)} en binario` )
+                                                                                     
                 }
 
 
@@ -449,7 +491,7 @@ pe. miFuncion(7) devolverá true.*/
         }
     
 
-    decimalBinary(1,111010101010111101)
+    decimalBinary("700","01010101010101011101")
     </script>
 </body>
 
