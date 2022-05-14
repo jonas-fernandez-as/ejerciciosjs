@@ -601,7 +601,29 @@ const years =(date=undefined) =>{
 
    }   
 
-//years(new Date(400,11,04))          
+//years(new Date(400,11,04))     
+
+//18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+
+ const consVocal1 = (string="") =>{
+     if (typeof string !== "string") {return console.error(`El tipo de dato ${string} no es una cadena`)}
+     if(string === "") {return console.warn("La cadena esta vacia")}
+     
+    let regexpString = string.match(/[aeiou]/ig) || [];
+     
+    let regexpString1 = string.match(/[bcdfghjklmnpqrstvwxyz]/ig) || [];
+
+     if (!(regexpString1.length) && !(regexpString.length) ) return console.warn(`No se puede obtener ningun dato de la cadena`)
+     if (!(regexpString.length)) return console.info(`Cantidad de consonantes: ${string.match(/[^aeiou ]/ig).length}. Cantidad de vocales: 0`)
+     if (!(regexpString1.length)) return console.info(`Cantidad de vocales: ${string.match((/[aeiou]/ig)).length}. Cantidad de consonantes: 0`)
+     
+     console.info
+     ( `Cantidad de vocales: ${string.match((/[aeiou]/ig)).length}.
+      Cantidad de consonantes: ${string.match(/[^aeiou ]/ig).length} `)
+ 
+    }
+    consVocal1("eeeaaaggghhhttt")
 </script>
 </body>
 
