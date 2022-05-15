@@ -623,7 +623,7 @@ const years =(date=undefined) =>{
       Cantidad de consonantes: ${string.match(/[^aeiou ]/ig).length} `)
  
     }
-    //consVocal1("eeeaaaggghhhttt")
+    //consVocal1("hola como te va mi nombre es peperoni almada y tengo 52 años")
 
    // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
    const validName =(name="") =>{
@@ -633,7 +633,18 @@ const years =(date=undefined) =>{
      else console.info(`El nombre ${name} es un formato de nombre correcto`)
    
 }
-   validName("maicol garlocha")
+   //validName("maicol kakabolti")
+
+//20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.   
+
+const validMail =(mail="") =>{
+    
+    if(!(/^[a-z0-9-_]+\@[a-z0-9-_]+\.[a-z-0-9]+$/.test(mail))) 
+    {console.error(`El formato de correo electronico "${mail}" es invalido`)}
+    else{console.info(`El formato de correo electronico "${mail}" es valido   `)}
+}
+ //validMail("caquitadura@1234")
+
 </script>
 
 </body>
