@@ -623,8 +623,19 @@ const years =(date=undefined) =>{
       Cantidad de consonantes: ${string.match(/[^aeiou ]/ig).length} `)
  
     }
-    consVocal1("eeeaaaggghhhttt")
+    //consVocal1("eeeaaaggghhhttt")
+
+   // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+   const validName =(name="") =>{
+       
+     if (!/^[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{0,15}\s[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{0,15}$/.test(name))
+     {return console.error(`${name} es un formato de nombre invalido(nombre y apellido separado con un espacio)`)}
+     else console.info(`El nombre ${name} es un formato de nombre correcto`)
+   
+}
+   validName("maicol garlocha")
 </script>
+
 </body>
 
 </html>
