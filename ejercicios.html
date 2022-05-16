@@ -48,6 +48,10 @@
 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
 <script>
 
            /*   
@@ -832,7 +836,165 @@ const pairOdd1 =(numbers=undefined)=>{
    )
 
 }
-pairOdd1([20,13,45,57,7,94,46,435,26])
+//pairOdd1([20,13,45,57,7,94,46,435,26])
+
+//24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+const orderNumber =(numbers=undefined) => {
+
+    if (numbers === undefined) {return console.warn(`Debes ingresar por lo menos un numero`)}
+
+    if (!(numbers instanceof Array)){return console.error(`ERROR el valor ${numbers} no es un formato de array valido`)}
+
+    if(numbers.length === 0) {return console.error(`El arreglo esta vacio`)}
+
+    for (let num of numbers) {
+        if (typeof num !== "number") {return console.error(`${num} NO es un numero`)}
+        ;
+        
+    }
+
+    let copia = undefined || []
+
+    numbers.sort((a,b)=>a-b);
+
+     for (let num of numbers){
+        copia.push(num)
+     }
+     
+
+          
+
+   console.info({
+    numbe: numbers.sort((a,b)=>a-b),
+    numbe2: copia.reverse()
+    
+   }
+)
+}
+//orderNumber([1])
+const orderNumber1 =(numbers=undefined) => {
+
+if (numbers === undefined) {return console.warn(`Debes ingresar por lo menos un numero`)}
+
+if (!(numbers instanceof Array)){return console.error(`ERROR el valor ${numbers} no es un formato de array valido`)}
+
+if(numbers.length === 0) {return console.error(`El arreglo esta vacio`)}
+
+for (let num of numbers) {
+    if (typeof num !== "number") {return console.error(`${num} NO es un numero`)}
+    ;
+    
+}
+
+console.info({
+numbers,
+asc: numbers.map(el=>el).sort(),
+desc: numbers.map(el=>el).sort().reverse()
+}
+)
+}
+//orderNumber1([1,2,3,4,5,6,7,8,9])
+
+
+
+//25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+const repeatedValue = (arr=undefined)=>{
+
+if (arr === undefined) {return console.warn(`Debes ingresar algun valor`)}
+
+    if (!(arr instanceof Array)){return console.error(`ERROR el valor ${arr} no es un formato de array valido`)}
+
+    if(arr.length === 0) {return console.error(`El arreglo esta vacio`)}
+  
+    /*let only=undefined || []
+
+      arr.forEach((item)=> {
+       if(!only.includes(item))
+            {only.push(item)}
+      })
+
+      console.info(only)*/
+
+    //let result = arr.filter((item,index) =>{
+       // return arr.indexOf(item) === index;
+    
+    //})
+
+    console.info({
+        //result: arr.filter((item,index,self)=> self.indexOf(item)=== index),
+        sinDuplicado:[...new Set(arr)],
+        arr
+    })
+}
+
+//repeatedValue(["ruben","ruben",10,10,"19","x",false,false,true,"caquita"])
+
+//26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+
+const average =(numbers=undefined) => {
+   
+    if (numbers === undefined) {return console.warn(`Debes ingresar por lo menos un numero`)}
+    
+    if (!(numbers instanceof Array)){return console.error(`ERROR el valor ${numbers} no es un formato de array valido`)}
+    
+    if(numbers.length === 0) {return console.error(`El arreglo esta vacio`)}
+    
+    for (let num of numbers) {
+
+    if (typeof num !== "number") {return console.error(`${num} NO es un numero`)}
+    
+    }
+      let total=0
+      for (let i=0; i<numbers.length; i++){
+          total+= numbers[i]
+          
+      }
+       
+      console.info( 
+      `La suma total de la cadena es ${total} y el promedio es: ${total/numbers.length}`)
+
+
+}
+
+//average([9,8,7,6,5,433,1234,24343,456436,45643634])
+
+const average1 =(numbers=undefined) => {
+   
+   if (numbers === undefined) {return console.warn(`Debes ingresar por lo menos un numero`)}
+   
+   if (!(numbers instanceof Array)){return console.error(`ERROR el valor ${numbers} no es un formato de array valido`)}
+   
+   if(numbers.length === 0) {return console.error(`El arreglo esta vacio`)}
+   
+   for (let num of numbers) {
+
+   if (typeof num !== "number") {return console.error(`${num} NO es un numero`)}
+   
+   }
+     
+         
+     
+      
+return console.info(
+ numbers.reduce((total,num,index,numbers)=>{
+   total +=num;
+    if(index === numbers.length-1){
+    return `El primedio de  ${numbers.join(" + ")} es : ${total/numbers.length}`;
+    }else{
+        return total;
+    }
+})
+)         
+}
+         
+     
+average1([1,5,45,65,5])     
+
+
+
+
 </script>
 
 </body>
