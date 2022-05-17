@@ -1142,10 +1142,10 @@ verificaGenero(genero=[]) =>{
   }*/
 
 
-let generosAceptados=
+/*let generosAceptados=
 ["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family",
 "Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV",
-"Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"];
+"Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"];*/
 
 
 class Pelicula{
@@ -1168,12 +1168,26 @@ class Pelicula{
 
  }
 
- fichaTecnica() {
-        console.log(`IMDB: ${this.imdb}, Titulo: ${this.titulo}, Director: ${this.director}, Año: ${this.anio}, Pais: ${this.pais}, Genero: ${this.genero}, Clasificación ${this.clasificacion}`);
+    fichaTecnica() {
+        console.info(
+            `Ficha técnica:\nID:"${this.id}"\nTitulo:"${this.titulo}"\nDirector:"${this.director}"\nEstreno:"${this.estreno}"\nPais(es): ${this.pais.join("-")}\nGenero(s):"${this.generos.join(",")}"\nCalificacion:"${this.calificacion}"`);
+    };
+    
+    static get listaGeneros(){
+        return["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary",
+            "Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News",
+            "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
     }
-    static generosAceptados() {
-        console.log("Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.")
+
+     static generosAceptados(){ 
+         return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(", ")}`);
+
     }
+    /*static generosAceptados() {
+        console.log(`Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy,
+         Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short,
+          Sport, Talk-Show, Thriller, War, Western.`)
+    }*/
     validarArray(propiedad, valor) {
         if (!valor) return console.warn(`${propiedad} "${valor}" esta vacío.`)
 
@@ -1183,10 +1197,11 @@ class Pelicula{
 
         for (let prop of valor) {
 
-            if (typeof prop !== "string") { return console.error(`${prop} NO es una cadena de texto`) }
+        if (typeof prop !== "string") { return console.error(`${prop} NO es una cadena de texto`) }
 
 
         }
+        return true
     }
     validarCadena(propiedad, valor) {
         if (!valor) return console.warn(`${propiedad} "${valor}" esta vacío`)
@@ -1258,17 +1273,22 @@ class Pelicula{
     }
     validarGenero(generos) {
         if (this.validarArray("Generos", generos));
-
-
-        if (!(generos.includes("Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary",
+        for (const genero of generos) {
+        
+         if(!(Pelicula.listaGeneros.includes(genero)))
+         {console.error(`Genero(s) "${generos.join(",")}" incorrectos`)
+         Pelicula.generosAceptados()}
+        }
+        /*if (!(generos.includes("Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary",
             "Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News",
             "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western")))
-            return console.error(`El genero "${generos}"" ingesado no se encuentra en la lista aceptada`)
+            return console.error(`El genero "${generos}"" ingesado no se encuentra en la lista aceptada`)*/
 
     }
     validarCalificacion(calificacion) {
         if (this.validarNumeroMaximo1("Calificacion", calificacion, 10))
             if (this.validarNumero("Calificacion", calificacion));
+            this.calificacion=calificacion.toFixed(1)
 
     };
 
@@ -1278,17 +1298,41 @@ class Pelicula{
 
 //Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
-const peli = new Pelicula({
-    id:"tt8293928",
-    titulo:"Extermineitors",
+
+const pelix=[
+{
+    id:"tt8293978",
+    titulo:"Extermineirs",
     director:"Francella",
+    estreno:1980,
+    pais:["Argntina"],
+    generos:["Adult"],
+    calificacion:9.68,
+},
+{
+    id:"ut8293928",
+    titulo:"Extermitors",
+    director:"Fralla",
     estreno:1990,
-    pais:["Argentina"],
-    generos:["Action"],
-    calificacion:10,
+    pais:["Argenti"],
+    generos:["Biography"],
+    calificacion:8,
+},
+
+    {id:"ti8293928",
+    titulo:"Emineitors",
+    director:"Fella",
+    estreno:1970,
+    pais:["Arntina"],
+    generos:["Crime"],
+    calificacion:9,
+},
     
     
-});
+];
+
+pelix.forEach(el=> new Pelicula(el).fichaTecnica());
+//peli.fichaTecnica()
 
 </script>
 
