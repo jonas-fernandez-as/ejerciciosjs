@@ -1131,8 +1131,21 @@ bolita.fichaTecnica()
 console.info(Peliculas)*/    
 //console.info(/^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,50}$/.test(director)) */
 
+/*let generosAceptados=["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV","Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"]
 
 
+verificaGenero(genero=[]) =>{
+ c=0
+  for(let i=0 ; i<generosAceptados.length; i++){
+      if (!(genero.includes(generosAceptados[i]))){c++}
+      if (c == 28){return console.error("El genero ingesado no se encuentra en la lista aceptada") }
+  }*/
+
+
+let generosAceptados=
+["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family",
+"Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV",
+"Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"];
 
 
 class Pelicula{
@@ -1148,54 +1161,132 @@ class Pelicula{
     this.validarIMDB(id)
     this.validarTitulo(titulo) 
     this.validarDirector(director)  
+    this.validarEstreno(estreno)
+    this.validarPais(pais)
+    this.validarGenero(generos)
+    this.validarCalificacion(calificacion)
+
  }
 
- validarCadena(propiedad,valor){
-  if(!valor) return console.warn(`${propiedad} "${valor}" esta vacío`)
+ fichaTecnica() {
+        console.log(`IMDB: ${this.imdb}, Titulo: ${this.titulo}, Director: ${this.director}, Año: ${this.anio}, Pais: ${this.pais}, Genero: ${this.genero}, Clasificación ${this.clasificacion}`);
+    }
+    static generosAceptados() {
+        console.log("Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.")
+    }
+    validarArray(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" esta vacío.`)
 
-  if (typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado , NO es una 
+        if (valor.length === 0) return console.warn(`${propiedad} "${valor}" esta vacío.`)
+
+        if (!(valor instanceof Array)) return console.error(`${propiedad} "${valor}" ingresado , NO es un array`)
+
+        for (let prop of valor) {
+
+            if (typeof prop !== "string") { return console.error(`${prop} NO es una cadena de texto`) }
+
+
+        }
+    }
+    validarCadena(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" esta vacío`)
+
+        if (typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado , NO es una 
   cadena de texto`)
 
-  return true
- 
- };
+        return true
 
- validarLongitudCadena(propiedad,valor,longitud){
- if(valor.length>longitud) return console.error(`${propiedad}"${valor}" exede el numero de
+    };
+
+    validarLongitudCadena(propiedad, valor, longitud) {
+        if (valor.length > longitud) return console.error(`${propiedad}"${valor}" exede el numero de
   caracteres permitidos ${longitud}.`)
 
- };
+    };
+    validarNumero(propiedad, valor) {
+        if (!valor) return console.warn(`${propiedad} "${valor}" esta vacío`)
+        if (typeof valor !== "number") return console.error(`${propiedad} "${valor}" ingresado, NO es un numero`);
+
+        return true
+    };
 
 
+    validarNumeroMaximo(propiedad, valor, maximo) {
+        if (valor > maximo) return console.error(`${propiedad} "${valor}" exede el maximo permitido ${maximo}`);
+        if (valor < 1900) return console.error(`${propiedad} "${valor}" invalido `);
+        return true
 
- validarIMDB(id){
-   if (this.validarCadena("IMDB id",id))
-   if (!(/^([a-z]){2}([0-9]){7}$/.test(id)))
-   return console.error(`IMDB id "${id} no es valido, debe tener 9 caracteres, los dos primeros
+    };
+
+    validarNumeroMaximo1(propiedad, valor, maximo) {
+        if (valor > maximo) return console.error(`${propiedad} "${valor}" exede el maximo permitido ${maximo}`);
+        if (Math.sign(valor) === -1) return console.error(`${propiedad} "${valor}" NO puede ser negativo `);
+        return true
+
+    };
+    validarIMDB(id) {
+        if (this.validarCadena("IMDB id", id))
+            if (!(/^([a-z]){2}([0-9]){7}$/.test(id)))
+                return console.error(`IMDB id "${id} no es valido, debe tener 9 caracteres, los dos primeros
    letras minusculas, los 7 restantes números`)
 
- };
+    };
 
 
- validarTitulo(titulo){
-   if(this.validarCadena("Titulo",titulo))
-    this.validarLongitudCadena("Titulo",titulo,100);
-       
-};
+    validarTitulo(titulo) {
+        if (this.validarCadena("Titulo", titulo))
+            this.validarLongitudCadena("Titulo", titulo, 100);
+
+    };
 
 
 
-validarDirector(director){
-   if(this.validarCadena("Director",director))
-    this.validarLongitudCadena("Director",director,50);
-       
-};
+    validarDirector(director) {
+        if (this.validarCadena("Director", director))
+            this.validarLongitudCadena("Director", director, 50);
+
+    };
+
+    validarEstreno(estreno) {
+        if (this.validarNumeroMaximo("Estreno", estreno, 2022))
+            if (this.validarNumero("Estreno", estreno));
+
+    };
+
+    validarPais(pais) {
+        if (this.validarArray("Pais", pais));
+    }
+    validarGenero(generos) {
+        if (this.validarArray("Generos", generos));
+
+
+        if (!(generos.includes("Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", "Documentary",
+            "Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", "Music", "Mystery", "News",
+            "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western")))
+            return console.error(`El genero "${generos}"" ingesado no se encuentra en la lista aceptada`)
+
+    }
+    validarCalificacion(calificacion) {
+        if (this.validarNumeroMaximo1("Calificacion", calificacion, 10))
+            if (this.validarNumero("Calificacion", calificacion));
+
+    };
+
 
 
 }
 
+//Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
 
 const peli = new Pelicula({
+    id:"tt8293928",
+    titulo:"Extermineitors",
+    director:"Francella",
+    estreno:1990,
+    pais:["Argentina"],
+    generos:["Action"],
+    calificacion:10,
+    
     
 });
 
