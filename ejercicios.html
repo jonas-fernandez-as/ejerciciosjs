@@ -889,12 +889,12 @@ for (let num of numbers) {
 
 console.info({
 numbers,
-asc: numbers.map(el=>el).sort(),
-desc: numbers.map(el=>el).sort().reverse()
+asc: numbers.map(el=>el).sort((a,b)=>a-b),
+desc: numbers.map(el=>el).sort((b,a)=>b-a).reverse()
 }
 )
 }
-//orderNumber1([1,2,3,4,5,6,7,8,9])
+//orderNumber1([1,232,43,4,5,6,7,8,9])
 
 
 
@@ -990,10 +990,214 @@ return console.info(
 }
          
      
-average1([1,5,45,65,5])     
+//average1([1,5,45,65,5])
+
+/*27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+*/
+/*let generosAceptados=["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary","Drama","Family","Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery","News","Reality-TV","Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"]
+
+
+const verificaGenero=(genero=[]) =>{
+ c=0
+  for(let i=0 ; i<generosAceptados.length; i++){
+      if (!(genero.includes(generosAceptados[i]))){c++}
+      if (c == 28){return console.error("El genero ingesado no se encuentra en la lista aceptada") }
+  }
+ }*/
+
+ 
+/*
+ class Pelicula{
+    constructor({id,titulo,director,estreno,pais,genero,calificacion}){  
+    this.id = id;
+    this.titulo = titulo;
+    this.director = director;
+    this.estreno = estreno;
+    this.pais = pais;
+    this.genero = genero;
+    this.calificacion = calificacion;
+
+    this.validarIMDBid(id);
+    
+   
+    }
+    
+    validarCadena(propiedad,valor){
+     if (!valor) {return console.warn(`${propiedad} "${valor}" esta vacio`)}
+     
+     if(typeof valor !== "string"){return console.error(`${propiedad} "${valor}" no es una cadena de texto`)}
+     return true
+    }
+    
+    validarIMDBid (id){
+        if(this.validarCadena("IMDB id",id))
+        if(!(/^([a-z]){2}([0-9]){7}$/.test(id)))
+        return console.error(`El IMDB id ${id} es incorrecto (se necesitan 2 numeros y 7 letras)`);    
+        
+        
+    }
+               
+    //if(!(/^[a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{2}[0-9]{7}$/.test(id)));
+    
+     validarTitulo(titulo){
+         if(this.validarCadena("Titulo",titulo))
+         if(!(/^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,100}$/.test(titulo)))
+         {return console.error(`El titulo ${titulo} es incorrecto (maximo 100 caracteres)`)};
+     }
+    
+     validarDIrector(director){
+         if(this.validarCadena("director",director))
+         if(!(/^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,50}$/.test(director)))
+         {console.info(`El director ${director} es incorrecto (maximo 50 caracteres)`)};
+     }
+    
+}
+//const pelik = new Pelicula({
+ //   id:"ef4524588",
+     
+ 
+*/
+/*static generosAceptados(){
+    console.log("Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.")
+}
+fichaTecnica () {
+    console.log(`IMDB: ${this.imdb}, Titulo: ${this.titulo}, Director: ${this.director}, Año: ${this.anio}, Pais: ${this.pais}, Genero: ${this.genero}, Clasificación ${this.clasificacion}`);
+    
+
+};*/
 
 
 
+
+/*class Peliculas extends Pelicula{
+    constructor(pelicula1,pelicula2,pelicula3){
+        
+        super(imdb,titulo,director,anio,pais,genero,clasificacion),
+        this.pelicula1,
+        this.pelicula2,
+        this.pelicula3
+        
+    }
+};
+
+ 
+
+ /*if(!(imdb == /^[a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{2}[0-9]{7}$/)){console.info(`El IMDB ${imdb} es incorrecto (se necesitan 2 numeros y 7 letras)`)};    
+ if(typeof imdb !== "string"){console.error(`El imdb no es una cadena de texto`)}
+ if(!(director == /^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,50}$/)){console.info(`El director ${director} es incorrecto (maximo 50 caracteres)`)};    
+ if(typeof director !== "string"){console.error(`El director no es una cadena de texto`)}
+ if(!(titulo == /^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,100}$/)){console.info(`El titulo ${titulo} es incorrecto (maximo 100 caracteres)`)};
+ if(typeof titulo !== "string"){console.error(`El titulo no es una cadena de texto`)}
+ if(!(anio == /^[0-9]{4}$/)){console.error(`El año ${anio} es incorrecto (maximo 4 numeros)`)};
+ if(typeof anio !== "number")
+ if(!(pais instanceof Array)) {console.error(`El pais debe estar en un arreglo`)}
+ if(!(genero instanceof Array)) {console.error(`El genero debe estar en un arreglo`)}
+ if(typeof clasificacion !== "number" ) {console.error(`El tipo de dato ${clasificacion} no es un numero`)}
+ if(!(clasificacion !== /[0-9]{1}\.[0-9]{1}$/ || clasificacion !== /10{1}/ )){console.error(`El valor ${clasificacion} es incorrecto (maximo 2 numeros o 1 en decimal)`)};
+ */
+ //verificaGenero(genero) ;
+
+
+/*const esa = new Pelicula("90asdwefe","peperoni","robertito","1990",["krakovia"],["Biography"],"10");
+const caca = new Pelicula("90asdwefe","peperoni","robertito","1990",["krakovia"],["Biography"],"10");
+
+
+console.log(bolita)
+let imdb= "90asdwefe",
+    director="robertito";
+
+bolita.fichaTecnica()
+console.info(Peliculas)*/    
+//console.info(/^[0-9a-zA-A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙa-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]{1,50}$/.test(director)) */
+
+
+
+
+
+class Pelicula{
+  constructor({id,titulo,director,estreno,pais,generos,calificacion}){
+    this.id = id;
+    this.titulo = titulo;
+    this.director = director;
+    this.estreno = estreno;
+    this.pais = pais;
+    this.generos = generos;
+    this.calificacion = calificacion;
+    
+    this.validarIMDB(id)
+    this.validarTitulo(titulo) 
+    this.validarDirector(director)  
+ }
+
+ validarCadena(propiedad,valor){
+  if(!valor) return console.warn(`${propiedad} "${valor}" esta vacío`)
+
+  if (typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado , NO es una 
+  cadena de texto`)
+
+  return true
+ 
+ };
+
+ validarLongitudCadena(propiedad,valor,longitud){
+ if(valor.length>longitud) return console.error(`${propiedad}"${valor}" exede el numero de
+  caracteres permitidos ${longitud}.`)
+
+ };
+
+
+
+ validarIMDB(id){
+   if (this.validarCadena("IMDB id",id))
+   if (!(/^([a-z]){2}([0-9]){7}$/.test(id)))
+   return console.error(`IMDB id "${id} no es valido, debe tener 9 caracteres, los dos primeros
+   letras minusculas, los 7 restantes números`)
+
+ };
+
+
+ validarTitulo(titulo){
+   if(this.validarCadena("Titulo",titulo))
+    this.validarLongitudCadena("Titulo",titulo,100);
+       
+};
+
+
+
+validarDirector(director){
+   if(this.validarCadena("Director",director))
+    this.validarLongitudCadena("Director",director,50);
+       
+};
+
+
+}
+
+
+const peli = new Pelicula({
+    
+});
 
 </script>
 
