@@ -37,5 +37,23 @@ const numeroAlCubo=(n=undefined) =>{
  cuenta los datos ingresados.*/
  
  
+ const timeToArrive =(distance=undefined,km=undefined) =>{
+     if (distance=== 0 || km=== 0) {return console.warn(`NO puedes ingresar 0 como valor`)}
+     if (distance=== undefined || km ===undefined) {return console.warn(`NO pueden haber valores vacíos`)}
+     if(typeof distance !== "number"){return console.error(`El valor "${distance}" NO es un numero`)}
+     if(typeof km !== "number"){return console.error(`El valor "${km}" NO es un numero`)}
+     if(Math.sign(km)===-1) {return console.error(`El valor ${km} NO puede ser negativo`)}
+     if(Math.sign(distance)===-1) {return console.error(`El valor ${distance} NO puede ser negativo`)}
+
+     console.info(`Se tardan ${distance/km}hs en recorrer ${distance}km de distancia a la velocidad de ${km}/h`)
+
+ }
  
- 
+ //timeToArrive(100)
+
+ /*
+ 5. Una casa de computación paga a sus empleados un sueldo fijo de ARS15000
+más una comisión del 5% sobre el total facturado por cada empleado. Hacer un
+programa para ingresar el total facturado por un empleado y que luego calcule
+y emita por pantalla el sueldo total a cobrar por el mismo.
+ */
