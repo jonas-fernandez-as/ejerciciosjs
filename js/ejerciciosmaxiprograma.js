@@ -57,3 +57,29 @@ más una comisión del 5% sobre el total facturado por cada empleado. Hacer un
 programa para ingresar el total facturado por un empleado y que luego calcule
 y emita por pantalla el sueldo total a cobrar por el mismo.
  */
+
+const sellComition =(sell=undefined) =>{
+    
+    if (sell=== undefined) {return console.warn(`NO ingresaste ningun valor`)}
+    if(typeof sell !== "number"){return console.error(`El valor "${sell}" NO es un numero`)}
+    if(Math.sign(sell)===-1) {return console.error(`El valor NO puede ser negativo`)}
+
+
+    console.info(` La comision por ventas es es: $${sell*0.05}, la comision mas el salario es: $${sell*0.05+1500}`)
+
+}
+
+sellComition(-5)
+
+const promedio =(n1=undefined,n2=undefined,n3=undefined)=>{
+    if (n1=== undefined||n2=== undefined||n3=== undefined) {return console.warn(`NO ingresaste ningun valor`)}
+    if(typeof n1 !== "number"){return console.error(`El valor "${n1}" NO es un numero`)}
+    if(typeof n2 !== "number"){return console.error(`El valor "${n2}" NO es un numero`)}
+    if(typeof n3 !== "number"){return console.error(`El valor "${n3}" NO es un numero`)}
+    if(Math.sign(n1)===-1||Math.sign(n2)===-1||Math.sign(n3)===-1) {return console.error(`El valor NO puede ser negativo`)}
+
+    console.info(`El promedio de las notas ${n1} + ${n2} + ${n3}  es: ${(n1+n2+n3)/3}`)
+
+}
+
+//promedio(8,6,5)
