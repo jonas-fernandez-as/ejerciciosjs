@@ -83,3 +83,9 @@ const promedio =(n1=undefined,n2=undefined,n3=undefined)=>{
 }
 
 //promedio(8,6,5)
+
+/* 7. Hacer un programa para ingresar por teclado los metros cuadrados totales de
+un predio y los metros cuadrados cubiertos; luego calcular y mostrar por
+pantalla el porcentaje de metros cuadrados cubiertos y el porcentaje de
+metros cuadrados descubiertos. */
+

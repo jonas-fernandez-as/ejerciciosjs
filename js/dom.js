@@ -62,3 +62,32 @@ $linkDOM.removeAttribute("data-kawirpi")
 console.log($linkDOM.hasAttribute("data-kawirpi"))*/
 
 // ESTILOS Y VARIABLES CSS
+
+const $enlaceDOM = document.querySelector(".enlace")
+
+console.log($enlaceDOM.style)
+console.log($enlaceDOM.getAttribute("Style"))
+console.log($enlaceDOM.style.color)
+console.log($enlaceDOM.style.backgroundColor)
+console.log(window.getComputedStyle($enlaceDOM))
+console.log(getComputedStyle($enlaceDOM).getPropertyValue("color"))
+$enlaceDOM.style.setProperty("text-decoration","none")
+$enlaceDOM.style.setProperty("display","block")
+$enlaceDOM.style.width= "50%"
+$enlaceDOM.style.height= "2rem"
+$enlaceDOM.style.textAlign= "center"
+$enlaceDOM.style.marginLeft= "auto"
+$enlaceDOM.style.marginRight= "auto"
+$enlaceDOM.style.borderRadius= "50%"
+$enlaceDOM.style.padding= "1.5rem"
+
+//CUSTOM PROPRIERTIES 
+let $html=document.documentElement,
+    $body=document.body
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color")
+let varSkyColor = getComputedStyle($html).getPropertyValue("--sky-color")
+console.log(varDarkColor,varSkyColor)
+$body.style.backgroundColor=varDarkColor
+$body.style.color=varSkyColor
+
+
