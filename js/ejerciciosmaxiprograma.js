@@ -28,7 +28,7 @@ const numeroAlCubo=(n=undefined) =>{
       :console.info  (`Estamos en el año actual ${born.getFullYear()}.`)
  }
  
- //edadPersona(new Date (3529,11,04))
+//edadPersona(new Date (3529,11,04))
  
  
  /*4. Hacer un programa que permita ingresar los kilómetros existentes entre dos
