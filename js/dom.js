@@ -234,7 +234,7 @@ document.body.appendChild($ul3)
 */
 
 //TEMPLATE HTML
-
+/*
 const $cards = document.querySelector(".cards"),
 $template= document.getElementById("template-card").content,
 $fragment = document.createDocumentFragment()
@@ -272,3 +272,113 @@ cardContent.forEach(el => {
 
 
 $cards.appendChild($fragment)
+*/
+
+//MODIFICANDO ELEMENTOS DEL DOM (OLD)
+
+/*
+const $cards = document.querySelector(".cards"),
+$newCard = document.createElement("figure"),
+$cloneCards= $cards.cloneNode(true);
+
+$newCard.classList.add("card")
+
+$newCard.innerHTML=`
+<img src="https://placeimg.com/200/200/any" alt="Any">
+<figcaption>Any</figcaption>
+`;
+//$cards.replaceChild($newCard,$cards.children[2])
+//$cards.removeChild($cards.lastElementChild);
+//$cards.insertBefore($newCard,$cards.firstElementChild);
+//document.body.appendChild($cloneCards)
+
+*/
+
+//MODIFICANDO ELEMENTOS DEL DOM (COOLSTYLE)
+
+/*
+.insertAdjacent...
+.insertAdjacentElement(position,el)
+.insertAdjacentHTML(position,html)
+.insertAdjacentText(position,text)
+
+Posiciones:
+beforebegin(hermano anterior)
+afterbegin(primer hijo)
+beforeend(ultimo hijo)
+afterend(hermano siguiente)
+*/
+/*
+EJEMPLOS:
+
+const $cards = document.querySelector(".cards"),
+$newCard = document.createElement("figure"),
+$cloneCards= $cards.cloneNode(true);
+
+
+
+$contentCard=`
+<img src="https://placeimg.com/200/200/any" alt="Any">
+<figcaption></figcaption>
+`
+;
+$newCard.classList.add("card")
+
+$newCard.insertAdjacentHTML("beforeend",$contentCard)
+$newCard.querySelector("figcaption").insertAdjacentText("afterbegin","Any")
+$cards.insertAdjacentElement("afterbegin",$newCard)
+
+$cards.prepend($newCard)
+$cards.append($newCard)
+$cards.after($newCard)
+$cards.before($newCard)
+*/
+
+//MANEJADORES DE EVENTOS- AGREGAR O ELIMINAR EVENTOS
+
+
+
+
+function holaMundo(){
+    alert("Hola Mundo");
+    console.log(event);
+}
+
+function saludar(nombre="Desconocid@"){
+    alert(`HOla ${nombre}`)
+    console.log(event)
+}
+const $eventoSemantico= document.getElementById("evento-semantico")
+const $eventoMultiple=document.getElementById("evento-multiple"),
+$eventoRemover= document.getElementById("evento-remover")
+
+
+$eventoSemantico.onclick=holaMundo;
+$eventoSemantico.onclick= function(e){
+    alert("HOla Mundo Manejador de Eventos Semantico");
+    console.log(e);
+    console.log(event)
+};
+$eventoMultiple.addEventListener("click",holaMundo)
+$eventoMultiple.addEventListener("click",(e)=>{
+    alert("Hola Mundo Manejador de Eventos Multiple");
+    console.log(e)
+    console.log(e.type)
+    console.log(e.target)
+    console.log(event)
+})
+$eventoMultiple.addEventListener("click",()=> {
+    saludar()
+    saludar("Jonás")
+})
+
+const removerDblClick =(e) =>{
+    saludar("Jonás")
+    alert(`Removiendo el evento de tipo ${e.type}`)
+    console.log(e);
+    $eventoRemover.removeEventListener("dblclick",removerDblClick);
+    $eventoRemover.disabled=true
+}
+
+
+$eventoRemover.addEventListener("dblclick",removerDblClick)
