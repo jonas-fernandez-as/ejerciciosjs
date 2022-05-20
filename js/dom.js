@@ -61,7 +61,7 @@ console.log($linkDOM.hasAttribute("data-kawirpi"))
 $linkDOM.removeAttribute("data-kawirpi")
 console.log($linkDOM.hasAttribute("data-kawirpi"))*/
 
-// ESTILOS Y VARIABLES CSS
+// ESTILOS Y VARIABLES CSS (DOM)
 /*
 const $enlaceDOM = document.querySelector(".enlace")
 
@@ -98,6 +98,8 @@ $body.style.backgroundColor=varDarkColor
 $body.style.color=varSkyColor
 */
 /*
+CLASES EN CSS (DOM)
+
 const $card =document.querySelector(".card")
 console.log($card)
 console.log($card.className)
@@ -119,6 +121,9 @@ $card.classList.add("opacity-80","sepia")
 $card.classList.remove("opacity-80","sepia")
 $card.classList.toggle("opacity-80","sepia") */
 
+/*
+TEXTO Y HTML
+
 const $whatIsDom = document.getElementById("que-es")
 
 let text= `  
@@ -135,4 +140,21 @@ API para documentos HTML y XML.
 `
  $whatIsDom.textContent=text
  $whatIsDom.innerHTML=text
- $whatIsDom.outerHTML=text
+ $whatIsDom.outerHTML=text */
+
+ //RECORRIENDO EL DOM
+/*
+ const $cards=document.querySelector(".cards")
+ console.log($cards)
+ console.log($cards.children)
+ console.log($cards.children[2])
+ console.log($cards.parentElement)
+ console.log($cards.firstElementChild)
+ console.log($cards.lastElementChild)
+ console.log($cards.previousElementSibling)
+ console.log($cards.nextElementSibling)
+ console.log($cards.closest("div"))
+ console.log($cards.closest("body"))
+ console.log($cards.children[3].closest("section")) */
+
+ //CREANDO ELEMENTOS Y FRAGMENTOS
