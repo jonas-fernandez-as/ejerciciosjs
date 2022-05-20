@@ -158,7 +158,7 @@ API para documentos HTML y XML.
  console.log($cards.children[3].closest("section")) */
 
  //CREANDO ELEMENTOS Y FRAGMENTOS
-
+/*
  const $figure =document.createElement("figure"),
        $img= document.createElement("img"),
        $figcaption= document.createElement("figcaption"),
@@ -231,6 +231,44 @@ meses.forEach((el)=>{
 
 $ul3.appendChild($fragment)
 document.body.appendChild($ul3)
+*/
+
+//TEMPLATE HTML
+
+const $cards = document.querySelector(".cards"),
+$template= document.getElementById("template-card").content,
+$fragment = document.createDocumentFragment()
+cardContent=[
+{    
+    title:"Tecnologia",
+    src:"https://placeimg.com/200/200/tech",
+},
+{    
+    title:"Animales",
+    src:"https://placeimg.com/200/200/animals",
+},
+{    
+    title:"Arquitectura",
+    src:"https://placeimg.com/200/200/arch",
+},
+{    
+    title:"Naturaleza",
+    src:"https://placeimg.com/200/200/nature",
+},
+{    
+    title:"Personas",
+    src:"https://placeimg.com/200/200/people",
+},
+]
+
+cardContent.forEach(el => {
+    $template.querySelector("img").setAttribute("alt",el.title)
+    $template.querySelector("img").setAttribute("src",el.src)
+    $template.querySelector("figcaption").textContent =el.title
+
+    let $clone =document.importNode($template,true);
+    $fragment.appendChild($clone)
+});
 
 
-
+$cards.appendChild($fragment)
