@@ -62,15 +62,15 @@ $linkDOM.removeAttribute("data-kawirpi")
 console.log($linkDOM.hasAttribute("data-kawirpi"))*/
 
 // ESTILOS Y VARIABLES CSS
-
+/*
 const $enlaceDOM = document.querySelector(".enlace")
 
-console.log($enlaceDOM.style)
-console.log($enlaceDOM.getAttribute("Style"))
-console.log($enlaceDOM.style.color)
-console.log($enlaceDOM.style.backgroundColor)
-console.log(window.getComputedStyle($enlaceDOM))
-console.log(getComputedStyle($enlaceDOM).getPropertyValue("color"))
+//console.log($enlaceDOM.style)
+//console.log($enlaceDOM.getAttribute("Style"))
+//console.log($enlaceDOM.style.color)
+//console.log($enlaceDOM.style.backgroundColor)
+//console.log(window.getComputedStyle($enlaceDOM))
+//console.log(getComputedStyle($enlaceDOM).getPropertyValue("color"))
 $enlaceDOM.style.setProperty("text-decoration","none")
 $enlaceDOM.style.setProperty("display","block")
 $enlaceDOM.style.width= "50%"
@@ -81,13 +81,58 @@ $enlaceDOM.style.marginRight= "auto"
 $enlaceDOM.style.borderRadius= "50%"
 $enlaceDOM.style.padding= "1.5rem"
 
+let $h1=document.querySelector("h1")
+$h1.style.setProperty("color","#fff")
+$h1.style.setProperty("font-size","3rem")
+$h1.style.setProperty("backgroundColor","#000")
+$h1.style.setProperty("backgroundColor","#000")
+$h1.style.textAlign="center"
+
 //CUSTOM PROPRIERTIES 
 let $html=document.documentElement,
     $body=document.body
 let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color")
 let varSkyColor = getComputedStyle($html).getPropertyValue("--sky-color")
-console.log(varDarkColor,varSkyColor)
+//console.log(varDarkColor,varSkyColor)
 $body.style.backgroundColor=varDarkColor
 $body.style.color=varSkyColor
+*/
+/*
+const $card =document.querySelector(".card")
+console.log($card)
+console.log($card.className)
+console.log($card.classList)
+console.log($card.classList.contains("rotate-45"))
+$card.classList.add("rotate-45")
+console.log($card.classList.contains("rotate-45"))
+console.log($card.className)
+console.log($card.classList)
+$card.classList.remove("rotate-45")
+console.log($card.classList.contains("rotate-45"))
+$card.classList.toggle("rotate-45")
+console.log($card.classList.contains("rotate-45"))
+$card.classList.toggle("rotate-45")
+console.log($card.classList.contains("rotate-45"))
+$card.classList.toggle("rotate-45")
+$card.classList.replace("rotate-45","rotate-135")
+$card.classList.add("opacity-80","sepia")
+$card.classList.remove("opacity-80","sepia")
+$card.classList.toggle("opacity-80","sepia") */
 
+const $whatIsDom = document.getElementById("que-es")
 
+let text= `  
+ <p>
+El Modelo de Objetos del Documento (<b><i>DOM - Document Object Model </i></b>) es un                    
+API para documentos HTML y XML.
+</p>
+<p>
+Éste provée una representación estructural del documento, permitiendo modificar su contenido y presentación visual mediante código JS.
+</p>
+<p>
+    <mark> El DOM no es parte de la especificación de JavaScript, es una API para los navegadores.</mark>
+</p>
+`
+ $whatIsDom.textContent=text
+ $whatIsDom.innerHTML=text
+ $whatIsDom.outerHTML=text
