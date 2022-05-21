@@ -384,8 +384,8 @@ const removerDblClick =(e) =>{
 $eventoRemover.addEventListener("dblclick",removerDblClick)
 */
 
-//FLUJO DE EVENTOS (BURBUJA Y CAPTURA)
-
+//FLUJO DE EVENTOS (BURBUJA Y CAPTURA)-PREVENT DEFAULT Y STOP PROPAGATION
+/*
 const $divsEventos =document.querySelectorAll(".eventos-flujo div"),
  $linkEventos =document.querySelector(".eventos-flujo a");
 
@@ -404,7 +404,7 @@ $divsEventos.forEach((div)=>{
     //div.addEventListener("click",flujoEventos,true)
     /*div.addEventListener("click",flujoEventos,{
         capture:false,
-        once:true})*/
+        once:true})
     
 })
 
@@ -413,3 +413,48 @@ $linkEventos.addEventListener("click",(e)=>{
     a.preventDefault();
     a.stopPropagation()
 })
+
+*/
+
+//DELEGACION DE EVENTOS
+
+const $divsEventos =document.querySelectorAll(".eventos-flujo div"),
+ $linkEventos =document.querySelector(".eventos-flujo a");
+
+function flujoEventos(e) {
+console.log(`Hola te saluda ${this}, el click lo origino ${e.target.className}`)
+e.stopPropagation()
+};
+
+
+document.addEventListener("click",(e) =>{
+    console.log(`Click en`,e.target);
+
+    if(e.target.matches(".eventos-flujo div")){
+        flujoEventos(e);
+    }
+
+    if(e.target.matches(".eventos-flujo a")){
+        alert(`HOliiiiis`);
+        e.preventDefault();
+    }
+    
+
+
+
+});
+
+/*
+console.log($divsEventos);
+
+$divsEventos.forEach((div)=>{
+    
+    div.addEventListener("click",flujoEventos)
+    
+})
+
+$linkEventos.addEventListener("click",(e)=>{
+    alert("holis");
+    a.preventDefault();
+    a.stopPropagation()
+}) */
