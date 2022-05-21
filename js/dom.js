@@ -414,10 +414,31 @@ $linkEventos.addEventListener("click",(e)=>{
     a.stopPropagation()
 })
 
-*/
+
+/*
+console.log($divsEventos);
+
+$divsEventos.forEach((div)=>{
+    
+    div.addEventListener("click",flujoEventos)
+    
+})
+
+$linkEventos.addEventListener("click",(e)=>{
+    alert("holis");
+    a.preventDefault();
+    a.stopPropagation()
+}) */
+
+
+
+
+
+
+
 
 //DELEGACION DE EVENTOS
-
+/*
 const $divsEventos =document.querySelectorAll(".eventos-flujo div"),
  $linkEventos =document.querySelector(".eventos-flujo a");
 
@@ -444,17 +465,131 @@ document.addEventListener("click",(e) =>{
 
 });
 
-/*
-console.log($divsEventos);
 
-$divsEventos.forEach((div)=>{
-    
-    div.addEventListener("click",flujoEventos)
-    
+*/
+
+/*
+
+//EVENTOS Y PROPIEDADES DEL BOM
+
+
+
+window.addEventListener("resize",(e)=>{
+    console.clear()
+    console.log(`*******Evento Resize*********`)
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    console.log(window.outerHeight)
+    console.log(window.outerWidth)
+    console.log(e)
 })
 
-$linkEventos.addEventListener("click",(e)=>{
-    alert("holis");
-    a.preventDefault();
-    a.stopPropagation()
-}) */
+window.addEventListener("scroll",(e)=>{
+    console.clear()
+    console.log(`******Evento scroll ********`)
+    console.log(window.scrollX)
+    console.log(window.scrollY)
+    console.log(e)
+})
+
+window.addEventListener("load",(e)=>{
+    
+    console.log(`*********Evento Load********`)
+    console.log(window.screenX)
+    console.log(window.screenY)
+    console.log(e)
+})
+
+window.addEventListener("DOMContentLoaded",(e)=>{
+
+    console.log(`*********Evento DOMContentLoaded********`)
+    console.log(window.screenX)
+    console.log(window.screenY)
+    console.log(e)
+})
+
+
+*/
+
+
+
+
+//METODOS DEL BOM
+
+
+/*
+
+//alert()        eventos del window !!!  window.alert()  window.confirm ()  window.prompt()
+//confirm()     //aceptar o cancelar y guardar en variable
+//prompt()      // guardar mensaja de texto en una variable 
+
+
+const $btnAbrir= document.getElementById("abrir-ventana"),
+      $btnCerrar= document.getElementById("cerrar-ventana"),
+      $btnImprimir= document.getElementById("imprimir-ventana");
+
+    let =ventana;
+
+    $btnAbrir.addEventListener("click",e=>{
+      ventana= window.open("https://jonasfernandez.wordpress.com") //puedes usar solo open
+    })
+
+      $btnCerrar.addEventListener("click",e=>{
+     // window.close()
+        ventana.close()
+    })
+
+    $btnImprimir.addEventListener("click",e=>{
+       window.print()   
+    })  
+
+*/
+
+
+
+
+//OBJETOS URL, HISTORIAL Y NAVEGADOR
+
+
+/*
+console.log(`******Objeto URL(location)*******`)
+console.log(location.origin)
+console.log(location.protocol)
+console.log(location.host)
+console.log(location.hostname)
+console.log(location.port)
+console.log(location.href)
+console.log(location.hash)
+console.log(location.search)
+console.log(location.pathname)
+//location.reload()
+*/
+/*console.log(`***********objeto histoial*************`)
+console.log(history)
+console.log(history.length)
+//console.log(history.back())
+//console.log(history.forward())
+//consosole.log(history.go())   -1 2 3 4 0 */
+/*
+console.log(`******Objeto Navegador********`)
+console.log(navigator)
+console.log(navigator.connection)
+console.log(navigator.geolocation)
+console.log(navigator.mediaDevices)
+console.log(navigator.mimeTypes)
+console.log(navigator.onLine)
+console.log(navigator.serviceWorker)
+console.log(navigator.storage)
+console.log(navigator.usb)
+console.log(navigator.userAgent)
+*/
+
+
+
+
+
+
+
+
+
+
