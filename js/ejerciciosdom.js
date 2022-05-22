@@ -8,11 +8,7 @@ const $h1=document.querySelector("h1"),
       $seccion3=document.getElementById("3"),
       $seccion4=document.getElementById("4"),
       $seccion5=document.getElementById("5")
-     // $seccion2=document.getElementsByClassName(".section2"),
-     //$seccion3=document.getElementsByClassName(".section3"),
-     // $seccion4=document.getElementsByClassName(".section4"),
-     // $seccion5=document.getElementsByClassName(".section5"),
-     // $secciones=document.getElementsByClassName(".seccion")
+
      
 console.log($hamburguesa)
 $hamburguesa.addEventListener("click",(e)=>{
