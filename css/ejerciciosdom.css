@@ -164,7 +164,7 @@ transform:translate(0,0);
     position: fixed;
     background-color: var(--main-color);
     bottom:1vh ;
-    right:10vw ;
+    right:calc(4.25rem + 1vw);
     border-radius: 50% ;
     width: 4rem ;
     height: 4rem ;
@@ -174,7 +174,8 @@ transform:translate(0,0);
 }
 .button-start:hover{
     cursor: pointer;
-    background-color: var(--main-modal-color);
+    background-color: var(--second-modal-color);
+    color:var(--main-color)
     
 }
 
@@ -193,20 +194,8 @@ transform:translate(0,0);
 }
 .flecha:hover{
     text-decoration: none;
-    color:var(--second-modal-color);
+    color:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

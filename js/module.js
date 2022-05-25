@@ -13,7 +13,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
     clockAlarm(".clock",".alarm-sound",".timestart",".timestop",".alarmstart",".alarmstop") 
     ballMove('#ball')   
     alerts()
-    countDown(".place","2022,05,25 10:50:00","VIVA PERON!!")
+    countDown(".place","2022,05,26 10:00:00","TE AMOOOOOOO")
     scrollbutton(".button-start")
     
 
