@@ -5,7 +5,7 @@ export default function clockAlarm(clock,alarmSound,timeInit,timeStop,alarmStart
  function reloj (){
 
   let fecha=new Date().toLocaleTimeString();
-  d.querySelector(clock).innerHTML= fecha;
+  d.querySelector(clock).innerHTML=`<h3>${fecha}</h3>`;
   }
         
  window.onload=function(){

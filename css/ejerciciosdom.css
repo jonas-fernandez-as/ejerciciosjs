@@ -197,8 +197,70 @@ transform:translate(0,0);
     color:var(--main-color);
 }
 
+/**********DARKMODE***************/
 
+.button-dark{
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    border:0;
+    outline: 0;
+    cursor: pointer;
+    display:flex;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom:1vh;
+    left:1vw;
+    background-color: var(--main-color);
+    
+}
+.button-dark:hover{
+    background-color: var(--second-modal-color);
+    transition: all 0.3s;
+}
 
+.moon{
+    filter: invert(.8) grayscale(1)
+    
+}
+.moon:hover{
+    filter: invert(0.000000001) grayscale(0.0000000001)
+}
+
+.button-light{
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    border:0;
+    outline: 0;
+    cursor: pointer;
+    display:flex;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom:1vh;
+    left:1vw;
+    background-color:var(--main-color);
+    
+}
+
+.button-light:hover{
+    background-color: var(--second-modal-color);
+    transition: all 0.3s;
+}
+
+.sun{
+    filter: grayscale(1) invert(1);
+}
+.sun:hover{
+    filter: grayscale(0.001);
+    
+}
 
 
 
