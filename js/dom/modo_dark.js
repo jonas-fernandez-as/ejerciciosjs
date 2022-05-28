@@ -1,39 +1,46 @@
 const d=document
- 
 
-export default function darkMode(lightBtn,darkBtn){
 
-    d.addEventListener("click",(e)=>{
-        if(e.target.matches(`${lightBtn} *`)){
-          
-            d.querySelector("body").style.setProperty("background-color","#FFF");
-            d.querySelector(lightBtn).classList.toggle("opacity");
-            d.querySelector(darkBtn).classList.remove("opacity")
-
-            d.querySelectorAll("[dark-mode]").forEach((el)=> (el).style.setProperty("color","#000"));
-            
-        }
-
-        if(e.target.matches(`${darkBtn} *`)){
-            
-            d.querySelector("body").style.setProperty("background-color","#222");
-            d.querySelector(darkBtn).classList.toggle("opacity");
-            d.querySelector(lightBtn).classList.remove("opacity")
-           
-           
-                
-                              
-                d.querySelectorAll("[dark-mode]").forEach((el)=> (el).style.setProperty("color","#f7df1e"));
-                     
-                
-                               
-                           
-                
-            } 
+export default function darkMode(darkBtn,classDark){
+      
          
-        })
+    let moon= "🌙", 
+    sun="☀️"   
 
+    const lightmode=()=>{
+        d.querySelectorAll("[dark-mode]").forEach(el=>el.classList.remove(classDark));
+        d.querySelector(darkBtn).textContent=moon;
+        localStorage.setItem("theme","light")
+
+    },
+
+    darkmode=()=>{
+        d.querySelectorAll("[dark-mode]").forEach((el)=> (el).classList.add(classDark));
+        d.querySelector(darkBtn).textContent=sun;
+        localStorage.setItem("theme","dark")
+      }
+      
+    d.addEventListener("click",(e)=>{
+        
+       
+        if(e.target.matches(darkBtn) && d.querySelector(darkBtn).textContent===moon)
+        
+        darkmode()
+        
+        else lightmode()
+      })
+
+    d.addEventListener("DOMContentLoaded",(e)=>{
+        if(localStorage.getItem("theme")===null)
+        localStorage.setItem("theme","light")
+
+        if(localStorage.getItem("theme")==="light")
+        lightmode();
+
+        if(localStorage.getItem("theme")==="dark")
+        darkmode();
+    })
 
         
         
-    } 
+ } 
