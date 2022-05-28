@@ -1,13 +1,18 @@
-const d=document
+const d=document,
+ w=window
+
 export default function responsiveJavascript(mapContainer,videoContainer){
     let $mapcontainer=d.querySelector(mapContainer),
     $videoContainer=d.querySelector(videoContainer)
+
+    
 
     if(window.matchMedia("(max-width: 400px)").matches){
         $mapcontainer.removeChild($mapcontainer.firstElementChild)
     }
     if(window.matchMedia("(max-width: 400px)").matches){
         $videoContainer.removeChild($videoContainer.firstElementChild)
+        
     }
 
     if(window.matchMedia("(min-width: 401px)").matches){
@@ -16,6 +21,5 @@ export default function responsiveJavascript(mapContainer,videoContainer){
     if(window.matchMedia("(min-width: 401px)").matches){
         $videoContainer.removeChild($videoContainer.lastElementChild)
     }
-
 
 }
