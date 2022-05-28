@@ -13,7 +13,7 @@ digitalClock("#reloj","#activar-reloj","#desactivar-reloj")
 alarm("assets/alarma-morning-mix.mp3","#activar-alarma","#desactivar-alarma")
 countdown("countdown","Dec 12 2022 09:50:00","Queloscumplafeli")
 scrollTopButton(".scroll-top-btn")
-darkTHeme(".dark-theme-btn","dark-mode")
+
 });
 
 
@@ -23,3 +23,6 @@ d.addEventListener("keydown",(e) =>{
     moveBall(e,".ball",".stage");
 }
 );
+
+
+darkTHeme(".dark-theme-btn","dark-mode")
