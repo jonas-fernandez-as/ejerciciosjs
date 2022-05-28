@@ -117,7 +117,7 @@ h1{
     background-color: #2222;
     bottom:0.00000001px;
     z-index:1;
-    transform: translate(0,-100%);
+    transform: translate(0,-120%);
     transition: transform 0.3s ease;
 }
 
@@ -302,6 +302,14 @@ transform:translate(0,0);
     font-size: 1.2rem;
 }
 
+/************Responsive tester********************/
+
+.responsive-tester-container{
+    display:flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
 
 
 
