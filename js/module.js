@@ -2,10 +2,11 @@
 import { countDown } from "./dom/countdown.js";
 import { alerts, ballMove } from "./dom/eventosteclado.js";
 import scrollbutton from "./dom/flecha_inicio.js";
-
+import responsiveJavascript from "./dom/responsive_javascrip.js";
 import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
 import clockAlarm from "./dom/reloj.js";
+
 
 const d=document
 
@@ -16,7 +17,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
     alerts()
     countDown(".place","2022,05,26 10:00:00","TE AMOOOOOOO")
     scrollbutton(".button-start")
-   
+   responsiveJavascript(".map-container",".video-container")
 
     
 });
