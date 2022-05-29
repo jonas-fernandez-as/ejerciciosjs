@@ -7,6 +7,7 @@ import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
 import clockAlarm from "./dom/reloj.js";
 import tester_responsivo from "./dom/tester_responsivo.js";
+import navigatorUserAgent from "./usuario_navegador.js";
 
 
 const d=document
@@ -16,10 +17,11 @@ d.addEventListener("DOMContentLoaded",(e)=>{
     clockAlarm(".clock",".alarm-sound",".timestart",".timestop",".alarmstart",".alarmstop") 
     ballMove('#ball')   
     alerts()
-    countDown(".place","2022,05,26 10:00:00","TE AMOOOOOOO")
+    countDown(".place","2022,05,29 13:11:00","TE AMOOOOOOO RENZOOO")
     scrollbutton(".button-start")
    //responsiveJavascript(".map-container",".video-container")
    tester_responsivo("responsive-form")
+   navigatorUserAgent("se")
  
 
     
