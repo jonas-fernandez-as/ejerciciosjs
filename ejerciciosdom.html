@@ -59,7 +59,7 @@
     </seccion>
     <seccion id="s4" class="seccion seccion4">
         <h2 class="h">Responsive con Javascript</h2>
-      <div class="video-container">
+     <!-- <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/9W_ViVlbUw0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <a href=https://youtu.be/9W_ViVlbUw0 target="_blank">Enlace al video</a>
       </div>
@@ -69,20 +69,33 @@
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.4497625341814!2d-68.830347!3d-32.88627489999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e0923c00d60cb%3A0x232bff0ae61a70ac!2sEntre%20R%C3%ADos%20565%2C%20M5502%20AUI%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1653701682568!5m2!1ses-419!2sar"
            width="400" height="300" style="border:0;" href="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
            <a class="link-map" href="https://www.google.com.ar/maps/place/Entre+R%C3%ADos+565,+M5502+AUI,+Mendoza/@-32.8862749,-68.8325357,17z/data=!3m1!4b1!4m5!3m4!1s0x967e0923c00d60cb:0x232bff0ae61a70ac!8m2!3d-32.8862749!4d-68.830347">Enlace del mapa</a>
-      </div>
+      </div>-->
     </seccion>
     <seccion id="s5" class="seccion seccion5">
         <h2 class="h">Responsive tester</h2>
-      <div class="responsive-tester-container">
-        <input class="page" type="text" name="pagina" id="page-tester" placeholder="Ingresa Pagina" required pattern="^[a-z0-9-_]+\.([a-z0-9]+)$"
-        title="Ingrese una pagina web válida">
-        <input class="width" type="text" name="width" id="w-tester" placeholder="Ingresa width" required pattern="^[0-9]+" 
-        title="Ingrese el ancho de la página">
-        <input class="height" type="text" name="height" id="h-tester" placeholder="Ingresa height" required pattern="^[0-9]+"
-        title="Ingrese el alto de la página">
-        <button type="submit" name="opener" class=open-window>Abrir ventana</button>
-        <button class="close-window">Cerrar ventana</button>
-      </div>
+      <form class="responsive-tester-container">
+        
+        <input class="input page" type="url" name="pagina"  placeholder="Ingresa Pagina"  
+          required>
+
+        <br>
+
+        <input class="input width" type="text" name="width"  placeholder="Ingresa width"   
+          required>
+
+        <br>
+
+        <input class="input height" type="text" name="height"  placeholder="Ingresa height"  
+          required>
+
+        <br>
+
+        <input type="submit" name="opener" class=open-window value="Abrir ventana">
+        <br>
+        <input class="close-window" name="closer" type="button" value="Cerrar ventana">
+
+      </form>
+
     </seccion>
     <seccion id="s6" class="seccion seccion5">
         <h2 class="h">Seccion6</h2>

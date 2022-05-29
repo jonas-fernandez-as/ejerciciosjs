@@ -311,7 +311,16 @@ transform:translate(0,0);
     flex-direction: column;
 }
 
+.input:valid{
+    background-color: #31fc6255;
+    
+}
 
+.input:invalid{
+    background-color: #ef131255;
+    color:red
+    
+}
 
 
 
