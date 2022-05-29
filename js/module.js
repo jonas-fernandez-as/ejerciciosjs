@@ -19,7 +19,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
     countDown(".place","2022,05,26 10:00:00","TE AMOOOOOOO")
     scrollbutton(".button-start")
    //responsiveJavascript(".map-container",".video-container")
-   tester_responsivo(".page",".width",".height",".open-window",".close-window")
+   tester_responsivo("responsive-form")
  
 
     

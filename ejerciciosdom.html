@@ -73,23 +73,17 @@
     </seccion>
     <seccion id="s5" class="seccion seccion5">
         <h2 class="h">Responsive tester</h2>
-      <form class="responsive-tester-container">
+      <form id="responsive-form">
         
         <input class="input page" type="url" name="pagina"  placeholder="Ingresa Pagina"  
           required>
-
         <br>
-
         <input class="input width" type="text" name="width"  placeholder="Ingresa width"   
-          required>
-
+          required pattern="^[0-9]+$" title="Solo se aceptan numeros">
         <br>
-
         <input class="input height" type="text" name="height"  placeholder="Ingresa height"  
-          required>
-
+          required pattern="^[0-9]+$" title="Solo se aceptan numeros">
         <br>
-
         <input type="submit" name="opener" class=open-window value="Abrir ventana">
         <br>
         <input class="close-window" name="closer" type="button" value="Cerrar ventana">

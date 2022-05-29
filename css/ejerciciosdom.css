@@ -118,7 +118,7 @@ h1{
     bottom:0.00000001px;
     z-index:1;
     transform: translate(0,-120%);
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .menu-container.is-active{
@@ -303,7 +303,7 @@ transform:translate(0,0);
 }
 
 /************Responsive tester********************/
-
+/*
 .responsive-tester-container{
     display:flex;
     align-items: center;
@@ -321,7 +321,7 @@ transform:translate(0,0);
     color:red
     
 }
-
+*/
 
 
 
