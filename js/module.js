@@ -1,4 +1,5 @@
 
+import conexionAlert from "./dom/coneccion_alerta.js";
 import { countDown } from "./dom/countdown.js";
 import { alerts, ballMove } from "./dom/eventosteclado.js";
 import scrollbutton from "./dom/flecha_inicio.js";
@@ -22,12 +23,10 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    //responsiveJavascript(".map-container",".video-container")
    tester_responsivo("responsive-form")
    navigatorUserAgent("se")
- 
+   conexionAlert(".conexionP",".conexionR")
 
     
 });
-
-
 
 
 darkMode(".button-dark","class-dark")

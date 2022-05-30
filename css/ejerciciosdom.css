@@ -322,9 +322,39 @@ transform:translate(0,0);
     
 }
 */
+/*****ALERTAS DE CONEXION*****/
 
+.conexionP{
+    position:sticky;
+    bottom:79vh;
+    left:0;
+    display:flex;
+    text-align:center;
+    align-items:center;
+    justify-content: center;
+    background-color: #cf3311;
+    letter-spacing: 2px;
+    font-size: calc(.8rem + .8vw);
+    font-weight: bold;
+    color: #000 !important;
 
+}
 
+.conexionR{
+    position:sticky;
+    bottom:79vh;
+    left:0;
+    display:flex;
+    text-align:center;
+    align-items:center;
+    justify-content: center;
+    background-color: #11cf33;
+    letter-spacing: 2px;
+    font-size: calc(.8rem + .8vw);
+    font-weight: bold;
+    color: #000 !important;
+
+}
 
 
 

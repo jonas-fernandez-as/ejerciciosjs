@@ -79,7 +79,7 @@ $id.innerHTML=`
         $id.innerHTML+= `<p><mark>Descarga nuestro software para Android</mark></p>`
     }
 
-    if(isDesktop.ios()){
+    if(isDesktop.mac()){
     
         $id.innerHTML+= `<p><mark>Descarga nuestro software para ios</mark></p>`
     }
