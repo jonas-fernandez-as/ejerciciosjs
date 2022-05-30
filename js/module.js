@@ -1,6 +1,7 @@
 
 import conexionAlert from "./dom/coneccion_alerta.js";
 import { countDown } from "./dom/countdown.js";
+import mediaDevice from "./dom/dispositivos_multimedia.js";
 import { alerts, ballMove } from "./dom/eventosteclado.js";
 import scrollbutton from "./dom/flecha_inicio.js";
 //import responsiveJavascript from "./dom/responsive_javascrip.js";
@@ -8,7 +9,7 @@ import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
 import clockAlarm from "./dom/reloj.js";
 import tester_responsivo from "./dom/tester_responsivo.js";
-import navigatorUserAgent from "./usuario_navegador.js";
+import navigatorUserAgent from "./dom/usuario_navegador.js";
 
 
 const d=document
@@ -24,7 +25,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    tester_responsivo("responsive-form")
    navigatorUserAgent("se")
    conexionAlert(".conexionP",".conexionR")
-
+   mediaDevice("canvase","screenshotb")
     
 });
 
