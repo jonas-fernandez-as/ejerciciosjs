@@ -4,6 +4,7 @@ import { countDown } from "./dom/countdown.js";
 import mediaDevice from "./dom/dispositivos_multimedia.js";
 import { alerts, ballMove } from "./dom/eventosteclado.js";
 import scrollbutton from "./dom/flecha_inicio.js";
+import geoLocation from "./dom/geolocalizacion.js";
 //import responsiveJavascript from "./dom/responsive_javascrip.js";
 import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
@@ -26,6 +27,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    navigatorUserAgent("se")
    conexionAlert(".conexionP",".conexionR")
    mediaDevice("canvase","screenshotb")
+   geoLocation("geolocation")
     
 });
 

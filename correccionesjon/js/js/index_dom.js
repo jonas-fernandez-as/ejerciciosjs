@@ -10,6 +10,7 @@ import { digitalClock,alarm } from "./dom/reloj.js";
 import { moveBall, shortcuts } from "./dom/teclado.js";
 import darkTHeme from "./dom/tema_oscuro.js";
 import webCam from "./dom/deteccion_webcam.js";
+import getGeolocation from "./dom/geolocalizacion.js";
 const d = document;
 
 d.addEventListener("DOMContentLoaded",e=>{
@@ -33,6 +34,7 @@ responsiveMedia(
 responsiveTester("responsive-tester")
 userDeviceInfo("user-device")
 webCam("webcam")
+getGeolocation("geolocation")
 
 });
 
