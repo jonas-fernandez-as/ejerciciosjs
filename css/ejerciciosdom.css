@@ -117,7 +117,7 @@ h1{
     background-color: #2222;
     bottom:0.00000001px;
     z-index:1;
-    transform: translate(0,-120%);
+    transform: translate(0,-150%);
     transition: 0.3s ease;
 }
 
@@ -365,29 +365,18 @@ transform:translate(0,0);
     cursor:pointer
     
 }
-.button-container{
-    margin:auto;
-    height: fit-content;
-    width: fit-content;
-    position: relative;
-    bottom:1.35rem;
-    left:5.85rem
-    
+
+:root{
+    --sky-color:#0399ff;
+    --dark-color:#222; 
 }
-
-
 .cards{
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    margin: 1rem;
+    border:1px solid #222;
+    padding: 1rem;
 }
-
-.card img{
-    width:100%;
-    height: auto;
-}
-
 .card{
-    transition: all 0.3s ease-out;
+    display:inline-block;
     background-color: var(--dark-color);
     color: var(--sky-color);
 }
@@ -395,14 +384,13 @@ transform:translate(0,0);
     padding: 1rem;
 }
 
+
 .opacity1{
     opacity:0;
     transition: all 0.3s;
     visibility:hidden;
-    order:1
+    
 }
-
-
 
 
 

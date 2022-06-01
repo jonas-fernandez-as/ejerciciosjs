@@ -10,6 +10,7 @@ import geoLocation from "./dom/geolocalizacion.js";
 import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
 import clockAlarm from "./dom/reloj.js";
+import sorteoDigital from "./dom/sorteo_digital.js";
 import tester_responsivo from "./dom/tester_responsivo.js";
 import navigatorUserAgent from "./dom/usuario_navegador.js";
 
@@ -30,6 +31,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    mediaDevice()
    geoLocation("geolocation")
    buscador(".search",".card")
+   sorteoDigital(".li-sorteo",".button-sorteo")
     
 });
 

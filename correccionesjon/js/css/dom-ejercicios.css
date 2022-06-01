@@ -249,7 +249,8 @@ header h1{
 
 .cards{
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    
 }
 
 .card img{
@@ -262,6 +263,7 @@ header h1{
     background-color: var(--dark-color);
     color: var(--sky-color);
 }
+
 .card figcaption{
     padding: 1rem;
 }
