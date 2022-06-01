@@ -1,4 +1,5 @@
 
+import buscador from "./dom/buscador.js";
 import conexionAlert from "./dom/coneccion_alerta.js";
 import { countDown } from "./dom/countdown.js";
 import mediaDevice from "./dom/dispositivos_multimedia.js";
@@ -26,8 +27,9 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    tester_responsivo("responsive-form")
    navigatorUserAgent("se")
    conexionAlert(".conexionP",".conexionR")
-   mediaDevice("canvase","screenshotb")
+   mediaDevice()
    geoLocation("geolocation")
+   buscador(".search",".card")
     
 });
 

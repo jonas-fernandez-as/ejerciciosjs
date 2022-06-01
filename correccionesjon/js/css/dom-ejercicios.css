@@ -244,5 +244,35 @@ header h1{
 
 
 
+/*****SEarcher*******/
+
+
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+
+.card img{
+    width:100%;
+    height: auto;
+}
+
+.card{
+    transition: all 0.3s ease-out;
+    background-color: var(--dark-color);
+    color: var(--sky-color);
+}
+.card figcaption{
+    padding: 1rem;
+}
+
+.opacity1{
+    opacity:0;
+    transition: all 0.3s;
+    visibility:hidden;
+    order:1
+}
+
+
 
 
