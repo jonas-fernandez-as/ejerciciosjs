@@ -2,7 +2,7 @@
 
 :root{
     --main-font:sans-serif;
-    --font-size:16px;
+    --font-size: 16px;
     --main-color:#f7df1e;
     --second-color:#222;
     --main-modal-color:rgba(247, 222, 30, 0.85);
@@ -66,7 +66,7 @@ h1{
 
 .seccion{
     position: relative;
-    font-size: 0.7rem;
+    
     display:inline-block;
     text-align: center;
     height: 100vh;
@@ -393,6 +393,42 @@ transform:translate(0,0);
 }
 
 
+/*******Slider Responsivo *****/
+
+.slider-container{
+    min-width: 250px;
+    min-height: 200px;
+    margin:auto;
+    position: relative;
+    width:50vw;
+    height:50vh;
+
+}
+.slider-content{
+    min-width: 250px;
+    min-height: 200px;
+    position: absolute;
+    width:inherit;
+    height:inherit;
+    border:1px solid #000;
+    transition:all 0.3s ease
+}
+.slider-img{
+    width:70vw;
+    height:50vh ;
+    object-fit: cover;
+}
+
+.btnleft, .btnright{
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius:50%;
+    border:none;
+    text-align: center;
+    font-size:1.7rem;
+    cursor: pointer;
+}
 
 
 
