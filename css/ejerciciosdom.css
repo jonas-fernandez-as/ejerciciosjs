@@ -372,7 +372,7 @@ transform:translate(0,0);
 }
 .cards{
     margin: 1rem;
-    border:1px solid #222;
+    
     padding: 1rem;
 }
 .card{
@@ -430,8 +430,39 @@ transform:translate(0,0);
     cursor: pointer;
 }
 
+/**********Scroll SPY ************/
 
 
+.menu-desktop{
+ position: fixed;
+ width: 13vw;
+ height: 90vh;
+ z-index: 11000;
+ display:flex;
+ align-items:center;
+ 
+ align-content: center;
+ justify-content: center;
+ text-align: center;
+ flex-direction: column;
+ translate:(0,0);
+color:var(--main-color);
+background-color: var(--second-color);
+font-size: 16px;
+margin-left:87vw;
+}
+
+.menu-desktop a{
+    position: relative;
+    
+    
+    
+
+    text-align: center;
+    letter-spacing: normal;
+    font-size: 16px;
+    color:var(--main-color)
+}
 
 
 

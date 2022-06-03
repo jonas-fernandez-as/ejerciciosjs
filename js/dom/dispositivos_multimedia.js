@@ -13,7 +13,7 @@ const d=document,
            console.log(stream);
        })
        .catch((error)=>{
-           video.insertAdjacentHTML("beforebegin",`<p><mark>¡Se ha producido el siguiente error!:${error}</p></mark>`)
+           video.insertAdjacentHTML("beforebegin",`<p><mark>¡Se ha producido el siguiente error!:<br> ${error}</p></mark>`)
            console.log(error)
        })
        
