@@ -100,7 +100,7 @@ h1{
     letter-spacing: 1rem;
 }
 .box-link a:hover{
-    color:#222
+    color:#000
 }
 .menu-container{
     
@@ -464,5 +464,9 @@ margin-left:87vw;
     color:var(--main-color)
 }
 
+.scroll-spy{
+    
+    background-color: #777;
+}
 
 

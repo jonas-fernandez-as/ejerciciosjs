@@ -11,7 +11,7 @@ import hamburguesaMenu from "./dom/menuhamburgesa.js";
 import darkMode from "./dom/modo_dark.js";
 import clockAlarm from "./dom/reloj.js";
 import responsiveSlider from "./dom/ruleta_responsiva.js";
-import spyScroll from "./dom/scroll-espia.js";
+import spyScroll from "./dom/scroll_espia.js";
 import sorteoDigital from "./dom/sorteo_digital.js";
 import tester_responsivo from "./dom/tester_responsivo.js";
 import navigatorUserAgent from "./dom/usuario_navegador.js";
@@ -35,7 +35,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    buscador(".search",".card")
    sorteoDigital(".li-sorteo",".button-sorteo")
    responsiveSlider(".slider-content",".btnleft",".btnright")
-   spyScroll("menu")
+   spyScroll("#menu")
     
 });
 
