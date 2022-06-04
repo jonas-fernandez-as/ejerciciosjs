@@ -32,6 +32,10 @@ img{
     max-width:100%;
     height:auto;
 }
+video{
+    width:70%;
+    height:auto;
+}
 
  
 header{
@@ -467,6 +471,15 @@ margin-left:87vw;
 .scroll-spy{
     
     background-color: #777;
+}
+
+/*****Video inteligente *****/
+
+.video-coso{
+    width: 70%;
+    height: auto;
+    margin:200px 0px;
+    margin-right:100px
 }
 
 
