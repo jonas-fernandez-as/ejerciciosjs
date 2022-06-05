@@ -37,9 +37,9 @@ const observador= new IntersectionObserver(cb,{
 
 $videos.forEach((el)=> observador.observe(el))
 
-d.addEventListener("visibilitychange",(e)=>{
+document.addEventListener("visibilitychange",(e)=>{
 
-    if(d.visibilityState==="visible"){
+    if(d.visibilityState==='visible'){
         $videos.forEach((el)=>el.play())
    
     }else{
@@ -59,5 +59,5 @@ d.addEventListener("visibilitychange",(e)=>{
  }else{
          $video.pause()
      }
-
+!d.hidden
 });*/
