@@ -33,7 +33,8 @@
     <a href="#seccion11" data-scroll-spy>Sorteo Digital</a>
     <a href="#seccion12" data-scroll-spy>Responsive Slider</a>
     <a href="#seccion13" data-scroll-spy>Video Inteligente</a>
-    <a href="#seccion14" data-scroll-spy>seccion14</a>
+    <a href="#seccion14" data-scroll-spy>Validaciones de Formulario</a>
+    <a href="#seccion15" data-scroll-spy>seccion15</a>
     
   </nav>
  </aside>
@@ -178,7 +179,28 @@
         
     </section>
     <section id="seccion14" class="section" data-scroll-spy>
-        <h2>seccion14</h2>
+        <h2>Validaciones de Formulario</h2>
+        <form class="contact-form" action="https://formsubmit.co/hemm_@hotmail.com" method="POST" target="_blank">
+            <legend>Envianos tus comentarios</legend>
+            <input type="text" name="name" placeholder="Escribe tu nombre"
+            title="Nombre solo acepta letas y espacios en blanco" required
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$">
+            <input type="email" name="email"placeholder="Escribe tu correo"
+            title="Email incorrecto" 
+            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+            <input type="text" name="subject" placeholder="Asunto a tratar"required
+            title="El asunto es requerido">
+            <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios"
+            data-pattern="^.{1,255}$" required title="Los comentarios son requeridos"></textarea>
+            <input type="submit"value="Enviar">
+            <div class="contact-form-loader none">
+                <img src="assets/tail-spin.svg" alt="Cargando">
+            </div>
+            <div class="contact-form-response none">
+                <p>Los datos han sido enviados</p>
+            </div>
+
+        </form>
     </section>
 </main>
 <button class="scroll-top-btn hidden">&#11014;</button>  
