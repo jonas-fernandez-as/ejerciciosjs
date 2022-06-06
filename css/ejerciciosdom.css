@@ -123,6 +123,7 @@ h1{
     z-index:1;
     transform: translate(0,-150%);
     transition: 0.3s ease;
+    overflow-y: auto;
 }
 
 .menu-container.is-active{
@@ -444,7 +445,7 @@ transform:translate(0,0);
  z-index: 11000;
  display:flex;
  align-items:center;
- 
+ overflow-y: auto;
  align-content: center;
  justify-content: center;
  text-align: center;
@@ -480,6 +481,77 @@ margin-left:87vw;
     height: auto;
     margin:200px 0px;
     margin-right:100px
+}
+
+/******* Formulario ********/
+
+.form-v-container{
+    display: flex;
+    flex-direction: column;
+    width:80vw;
+    padding-left:6rem;
+    align-items:center;
+    justify-content:center;
+    
+}
+
+.form-item{
+    text-align:start;
+    height: 2rem;
+    width: 70vw;
+    outline:none
+
+}
+
+.form-item:valid{
+    border:1px solid #11cf33
+
+}
+.form-item:invalid{
+    border: 1px solid #cf3311;
+}
+
+.form-button{
+    width:5rem;
+    height: 2rem;
+}
+
+
+
+
+#comentarios{
+    font-family: sans-serif;
+    font-size: 12px;
+    color:#000;
+    display: flex;
+    justify-content: flex-start;
+    height:6rem;
+    resize:none;
+    outline:none;
+    width: 70vw;
+    
+}
+
+#comentarios::placeholder{
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: left;
+    padding-top: 90%;
+    
+}
+.form-item::placeholder{
+    text-align: left;
+
+}
+
+.validator{
+    color:#FFF;
+    background-color: #cf3311;
+    width: 70vw;
+    height: 2rem;
+    text-align: center;
+    margin: 0,auto;
+
 }
 
 

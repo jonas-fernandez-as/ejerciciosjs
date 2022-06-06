@@ -27,6 +27,7 @@
         <div id="10" class="box-link"><a  href="#s10">Sorteo Digital</a></div>
         <div id="11" class="box-link"><a  href="#s11">Responsive Slider</a></div>
         <div id="12" class="box-link"><a  href="#s12">Video Inteligente</a></div>
+        <div id="13" class="box-link"><a  href="#s13">Formulario de contacto</a></div>
         
     </div>
 <nav>
@@ -194,6 +195,31 @@
       <h2>Video Inteligente</h2>
       <video id="video1" class="video-coso" src="aset/video.mp4"controls></video>
       <video id="video2" class="video-coso" src="aset/video.mp4"controls></video>
+  </section>
+  <section n="13" href="#13" id="s13" class="seccion seccion13">
+    <h2 class="h">Formulario de contacto (Validaciones)</h2>
+    <h3><b>Envianos tus comentarios</b></h3>
+   <form class="form-v-container">
+
+    <input class="form-item" type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" 
+    required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}[ ]{1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}">
+    <div class="validator validator-nombre opacity">
+      Ingresa solo un nombre Nombre(1) y un apellido (1) separado por un(1) espacio</div>
+
+    <input class="form-item" type="email" name="email" id="email" placeholder="Escribe tu mail" required>
+    <div class="validator validator-email opacity">Ingresa un correo valido</div>
+
+    <input class="form-item" type="text" name="asunto" id="ausunto" placeholder="Escribe el asunto a tratar" required 
+    pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}" >
+    <div class="validator validator-asunto opacity">Ingresa un asunto valido MAXIMO 50 caracteres</div>
+
+    <textarea cols="30" rows="10" class="form-item" type="textarea" name="comentarios" id="comentarios" placeholder="Comentarios aqui" required
+    pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,250}"></textarea>
+    <div class="validator validator-comentarios opacity">Ingresa un texto valido MAXIMO 250 caracteres</div>
+
+    <input class="form-button" type="submit" name="submit" value="Enviar" required >
+
+   </form>
   </section>
     
 </main>

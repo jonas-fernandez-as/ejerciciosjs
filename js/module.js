@@ -15,6 +15,7 @@ import spyScroll from "./dom/scroll_espia.js";
 import sorteoDigital from "./dom/sorteo_digital.js";
 import tester_responsivo from "./dom/tester_responsivo.js";
 import navigatorUserAgent from "./dom/usuario_navegador.js";
+import formValidator from "./dom/validar_formulario.js";
 import smartVideo from "./dom/video_inteligente.js";
 
 
@@ -38,6 +39,7 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    responsiveSlider(".slider-content",".btnleft",".btnright")
    spyScroll("#menu")
    smartVideo()
+   formValidator(".form-v-container")
     
 });
 

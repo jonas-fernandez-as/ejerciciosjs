@@ -3,7 +3,7 @@ const d= document;
 export default function responsiveSlider(selector,btnleft,btnright){
     const $array=[]
     d.querySelectorAll(selector).forEach((el)=> $array.push(el))
-    console.log($array)
+    //console.log($array)
     let slide= 1;
     let total=$array.length;
     

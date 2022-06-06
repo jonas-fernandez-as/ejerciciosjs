@@ -13,7 +13,9 @@ const d=document,
     seccion8= d.querySelector(".seccion8"),
     seccion9= d.querySelector(".seccion9"),
     seccion10= d.querySelector(".seccion10"),
-    seccion11= d.querySelector(".seccion11")
+    seccion11= d.querySelector(".seccion11"),
+    seccion12= d.querySelector(".seccion12"),
+    seccion13= d.querySelector(".seccion13")
 
 
 
@@ -26,7 +28,7 @@ const d=document,
         d.getElementById(enlace).classList.add("scroll-spy")
          
                             
-        console.log(enlace)
+        //console.log(enlace)
       
      }
      
@@ -60,6 +62,8 @@ const d=document,
  observador.observe(seccion9)
  observador.observe(seccion10)
  observador.observe(seccion11)
+ observador.observe(seccion12)
+ observador.observe(seccion13)
 
 
 

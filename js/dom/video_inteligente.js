@@ -10,7 +10,7 @@ const $videos= d.querySelectorAll(".video-coso")
          
      
      if(entry.isIntersecting){
-        console.log(entry);
+       // console.log(entry);
         let blanco= entry.target
          
         blanco.play()
