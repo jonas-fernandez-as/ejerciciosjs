@@ -1,4 +1,5 @@
 
+import voiceSynthesis from "./dom/sintesis_voz.js";
 import buscador from "./dom/buscador.js";
 import conexionAlert from "./dom/coneccion_alerta.js";
 import { countDown } from "./dom/countdown.js";
@@ -40,10 +41,11 @@ d.addEventListener("DOMContentLoaded",(e)=>{
    spyScroll("#menu")
    smartVideo()
    formValidator(".form-v-container")
+   
     
 });
 
-
+voiceSynthesis()
 darkMode(".button-dark","class-dark")
 
 

@@ -15,7 +15,8 @@ const d=document,
     seccion10= d.querySelector(".seccion10"),
     seccion11= d.querySelector(".seccion11"),
     seccion12= d.querySelector(".seccion12"),
-    seccion13= d.querySelector(".seccion13")
+    seccion13= d.querySelector(".seccion13"),
+    seccion14= d.querySelector(".seccion14")
 
 
 
@@ -64,6 +65,7 @@ const d=document,
  observador.observe(seccion11)
  observador.observe(seccion12)
  observador.observe(seccion13)
+ observador.observe(seccion14)
 
 
 
