@@ -1,0 +1,24 @@
+{
+    "secciones":[
+    {  "id":"1",
+        "h2":"Contenido de la seccion Home",
+        "img":"https://placeimg.com/600/400/tech"
+    
+    },
+    {  "id":"2",
+        "h2":"Contenido de la seccion Acerca de",
+        "img":"https://placeimg.com/600/400/animals"
+    
+    },
+    {  "id":3,
+        "h2":"Contenido de la seccion Servicios",
+        "img":"https://placeimg.com/600/400/arch"
+    
+    },
+    {  "id":4,
+        "h2":"Contenido de la seccion Contactos",
+        "img":"https://placeimg.com/600/400/people"
+    
+    }
+]
+}
