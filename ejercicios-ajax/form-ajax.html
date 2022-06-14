@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con AJAX y Form submit</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            font-family: sans-serif;
+            font-size: 16px;
+
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+
+        }
+
+        /******* Formulario ********/
+        h3 {
+            text-align: center;
+        }
+
+        .form-v-container {
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right:auto ;
+
+        }
+
+        .form-item {
+            text-align: start;
+            height: 2rem;
+            width: 70vw;
+            outline: none
+        }
+
+        .form-item:valid {
+            border: 1px solid #11cf33
+        }
+
+        .form-item:invalid {
+            border: 1px solid #cf3311;
+        }
+
+        .form-button {
+            width: 5rem;
+            height: 2rem;
+        }
+
+
+
+
+        #comentarios {
+            font-family: sans-serif;
+            font-size: 12px;
+            color: #000;
+            display: flex;
+            justify-content: flex-start;
+            height: 6rem;
+            resize: none;
+            outline: none;
+            width: 70vw;
+
+        }
+
+        #comentarios::placeholder {
+            font-family: sans-serif;
+            font-size: 12px;
+            text-align: left;
+            padding-top: 90%;
+
+        }
+
+        .form-item::placeholder {
+            text-align: left;
+
+        }
+
+        .validator {
+            color: #FFF;
+            background-color: #cf3311;
+            width: 70vw;
+            height: 2rem;
+            text-align: center;
+            font-size: .8rem;
+
+        }
+
+        .opacity {
+            opacity: 0;
+            transition: all 0.3s;
+            visibility: hidden
+        }
+
+        .visible {
+            opacity: 1;
+            transition: all 0.3s
+        }
+
+        .form-button {
+            margin: 1rem
+        }
+        .text-align-center{
+            margin-left: auto;
+            margin-right:auto;
+            text-align: center;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            margin:0.5rem
+        }
+    </style>
+
+</head>
+
+<body>
+    <main>
+        <h3><b>Envianos tus comentarios</b></h3>
+        <form class="form-v-container">
+
+            <input class="form-item" type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" required
+                pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}[ ]{1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}">
+            <div class="validator validator-nombre opacity">
+                Nombre(1) y un apellido (1) separado por un(1) espacio</div>
+
+            <input class="form-item" type="email" name="email" id="email" placeholder="Escribe tu mail" required>
+            <div class="validator validator-email opacity">Ingresa un correo valido</div>
+
+            <input class="form-item" type="text" name="asunto" id="ausunto" placeholder="Escribe el asunto a tratar"
+                required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}">
+            <div class="validator validator-asunto opacity">Ingresa un asunto valido MAXIMO 50 caracteres</div>
+
+            <textarea cols="30" rows="10" class="form-item" type="textarea" name="comentarios" id="comentarios"
+                placeholder="Comentarios aqui" required pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,250}"></textarea>
+            <div class="validator validator-comentarios opacity">Ingresa un texto valido MAXIMO 250 caracteres</div>
+
+            <input class="form-button" type="submit" name="submit" value="Enviar" required>
+            <div class="loader text-align-center opacity"><img src="ashet/tail-spin.svg" alt="loader"></div>
+
+        </form>
+    </main>
+
+    <script>
+        const d = document,
+            w = window,
+            n = navigator,
+            $form = d.querySelector(".form-v-container")
+            const xhr = new XMLHttpRequest()
+        function formValidator() {
+
+
+            d.addEventListener("keyup", (e) => {
+                let name = $form.nombre.value,
+                    mail = $form.email.value,
+                    affair = $form.asunto.value,
+                    comment = $form.comentarios.value
+
+                //console.info(name)
+                //console.info(mail)
+                //console.info(((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,250}$/).test(comment))===true)
+
+
+                if(name !=="" &&((/[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}[ ]{1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}/).test(name))===false) {
+                 d.querySelector(".validator-nombre").classList.remove("opacity")
+                
+                }
+
+                //if (((/[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}[ ]{1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}/).test(name)) === false) {
+//
+                //    d.querySelector(".validator-nombre").classList.remove("opacity")
+//
+//
+                //}
+                if (((/[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}[ ]{1}[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,15}/).test(name)) === true) {
+                    d.querySelector(".validator-nombre").classList.add("opacity")
+
+
+
+
+                }
+
+                if (mail !== "" && ((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(mail)) === false) {
+                    d.querySelector(".validator-email").classList.remove("opacity")
+
+                }
+                //if (((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(mail)) === false) {
+//
+                //    d.querySelector(".validator-email").classList.remove("opacity")
+//
+                //}
+                if (((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(mail)) === true) {
+                    d.querySelector(".validator-email").classList.add("opacity")
+
+                }
+
+
+
+
+
+                if (affair !== "" && ((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}$/).test(affair)) === false) {
+                    d.querySelector(".validator-asunto").classList.remove("opacity")
+
+                }
+                //if (((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}$/).test(affair)) === false) {
+                //    d.querySelector(".validator-asunto").classList.remove("opacity")
+//
+                //}
+                if (((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}$/).test(affair)) === true) {
+                    d.querySelector(".validator-asunto").classList.add("opacity")
+
+                }
+
+
+
+
+
+                if (comment !== "" && ((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,50}$/).test(comment)) === false) {
+                    d.querySelector(".validator-comentarios").classList.remove("opacity")
+
+                }
+                //if (((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,250}$/).test(comment)) === false) {
+                //    d.querySelector(".validator-comentarios").classList.remove("opacity")
+//
+                //}
+                if (((/^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ0-9 ]{2,250}$/).test(comment)) === true) {
+                    d.querySelector(".validator-comentarios").classList.add("opacity")
+
+
+                }
+
+
+            })
+        }
+
+
+
+        d.addEventListener("submit", (e) => {
+                    e.preventDefault()
+                    alert("Enviando Formulario")
+
+                  
+                  
+
+                    xhr.addEventListener("readystatechange", e => {
+                        if (xhr.readyState !== 4) return;
+                              
+                        if (xhr.status>=200 && xhr.status <300) {
+                            let json = JSON.parse(xhr.responseText);
+                            const $span = d.createElement("span")
+                            $span.classList.add("text-align-center")
+                            $span.innerHTML = `<b>${json.message}</b>`
+                            $form.insertAdjacentElement("afterend",$span)
+                            d.querySelector(".loader").classList.remove("opacity")   
+                            console.info(json.message)
+                            
+
+                            setTimeout(() => {
+                                $form.reset()
+                                $span.innerHTML=""
+                                d.querySelector(".loader").classList.add("opacity")
+                            }, 3000);
+
+                            console.log(json)
+
+                        } else {
+                            let message = xhr.statusText || "Ocurrio un error"
+                            const $span = d.createElement("span")
+                            $span.classList.add("text-align-center")
+                            $span.innerHTML = `<b> ERROR ${xhr.status}:${message}</b>`
+                            $form.insertAdjacentElement("afterend",$span)    
+                            console.info(message)
+                            d.querySelector(".loader").classList.remove("opacity")
+                            setTimeout(() => {
+                                $span.innerHTML=""
+                                d.querySelector(".loader").classList.add("opacity")
+                            }, 3000);
+
+                            console.log(xhr.status)
+                        }
+
+
+                    })
+
+                    xhr.open("POST","https://formsubmit.co/ajax/hemm_@hotmail.com")
+                    xhr.send(new FormData(e.target))
+                })
+        d.addEventListener("DOMContentLoaded", formValidator)
+
+
+
+// "POST","https://formsubmit.co/ajax/hemm_@hotmail.com"
+    </script>
+
+</body>
+
+</html>
+

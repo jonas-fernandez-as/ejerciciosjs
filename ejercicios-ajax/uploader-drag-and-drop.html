@@ -16,6 +16,9 @@
         *:after {
             box-sizing: inherit;
         }
+        body{
+            margin:0;
+        }
         main{
             display: flex;
             flex-direction: column;
@@ -25,17 +28,52 @@
             min-height: 100vh;
         }
 
+        .drop-space{
+            width:80%;
+            height:40vh;
+            margin-left:auto;
+            margin-right:auto;
+            border:1px dotted #000;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items:center 
+            
+        }
+        
+        .drop-space.is-active{
+            border:5px dashed #000;
+            animation: beats 1.5s infinite;
+            background-color: skyblue;
+            font-weight: bolder;
+            animation-timing-function: linear;
+        }
+
+        @keyframes beats{
+            0%,
+            100%
+            {
+                transform:scale(1.0)
+            }
+            50%{
+                transform:scale(1.1)
+            }
+        }
+
+
+
     </style>
 </head>
 
 <body>
     <main>
-    <input id="files" type="file" name="files" multiple>
+    <section class="drop-space">Arrastra tus archivos..</section>
+    
     </main>
     <script>
        const d=document,
        $main=d.querySelector("main"),
-       $files=d.getElementById("files")
+       $dropSpace=d.querySelector(".drop-space")
 
     const uploader= async function(file){
         let formData=new FormData();
@@ -75,7 +113,7 @@
         fileReader.addEventListener("progress",e=>{
             let progress= parseInt((e.loaded*100)/e.total)
             $progress.value=progress
-            $span.innerHTML=`<b>${file.name}--${progress}%`
+            $span.innerHTML=`<b>${file.name}--${progress}%</b>`
     
         })
 
@@ -84,18 +122,33 @@
             setTimeout(()=>{
                 $main.removeChild($span);
                 $main.removeChild($progress);
-                $files.value="";
+                
 
             },3000)
         })
     }
-    
-    d.addEventListener("change",(e)=>{
-        if(e.target===$files){
-            const files= Array.from((e.target.files))
-            files.forEach(el=>{uploaderProgress(el)})
-        }
+
+    $dropSpace.addEventListener("dragover",(e)=>{
+        e.preventDefault(),
+        e.stopPropagation()
+        e.target.classList.add("is-active")
     })
+
+    $dropSpace.addEventListener("dragleave",(e)=>{
+        e.preventDefault(),
+        e.stopPropagation()
+        e.target.classList.remove("is-active")
+    })
+
+    $dropSpace.addEventListener("drop",(e)=>{
+        e.preventDefault(),
+        e.stopPropagation()
+        e.target.classList.remove("is-active")
+        files=Array.from(e.dataTransfer.files)
+        files.forEach(el => {uploaderProgress(el)});
+
+    })
+    
 
         
     </script>
