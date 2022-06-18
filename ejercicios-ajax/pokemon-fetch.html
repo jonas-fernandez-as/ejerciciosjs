@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemones</title>
+
+    <style>
+        div {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .none {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pokemones con ajax</h1>
+    <main>
+        <span class="buttons">
+            <button data="" class="prev">⏮️</button>
+
+            <button data="" class="next">⏭️</button>
+        </span>
+        <section class="pokemones"></section>
+
+    </main>
+</body>
+<script>
+
+
+    const d = document,
+        $main = d.querySelector("main"),
+        $fragment = d.createDocumentFragment(),
+        $section = d.querySelector(".pokemones")
+
+    let search = 0
+
+    let enlace = "https://pokeapi.co/api/v2/pokemon"
+
+    async function getData(enlace) {
+        try {
+            let res = await fetch(enlace),
+                json = await res.json()
+
+            json = Object.entries(json)
+            let pokemones = Object.keys(json[3]).map(function (key) { return json[3][key] })
+            pokemones = Object.keys(pokemones[1]).map(function (key) { return pokemones[1][key] })
+
+            let next = Object.keys(json[1]).map(function (key) { return json[1][key] }),
+                prev = Object.keys(json[2]).map(function (key) { return json[2][key] })
+            console.info(next, prev)
+
+            d.querySelector(".prev").data = `${prev[1]}`
+            d.querySelector(".next").data = `${next[1]}`
+
+            const $div = d.createElement("div")
+            console.info(json)
+            console.info(pokemones)
+            pokemones.forEach(el => {
+
+                const $figure = d.createElement("figure"),
+                    $img = d.createElement("img"),
+                    $figcaption = d.createElement("figcaption"),
+                    $article = d.createElement("article")
+                let regex = /(\d+)/g;
+                let enlace = el.url
+                let numero = enlace.match(regex)
+
+
+                $img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${numero[1]}.png`
+                $img.alt = `${el.name}`
+                $figcaption.innerHTML = `<p>${el.name}</p>`
+
+
+                $figure.appendChild($img)
+                $figure.appendChild($figcaption)
+
+
+
+                //let $clone=d.importNode($template,true)
+
+
+                $fragment.appendChild($figure)
+
+            });
+            $div.appendChild($fragment)
+            d.querySelector(".pokemones").appendChild($div)
+
+            if (!res.ok) throw { status: res.status, statusText: res.statusText };
+
+        } catch (error) {
+            let message = err.statusText || "Ocurrio un error"
+            alert(`ERROR ${$err.status}:${message}`)
+
+
+        }
+
+    }
+
+
+
+    d.addEventListener("click", (e) => {
+        if (e.target === (d.querySelector(".prev"))) {
+
+            $section.removeChild($section.lastElementChild)
+
+
+            search -= 20;
+            console.info(search)
+
+            getData(`https://pokeapi.co/api/v2/pokemon?offset=${search}&limit=`)
+
+            if (search <= 0) { d.querySelector(".prev").classList.add("none") }
+            if (search !== 1200) { d.querySelector(".next").classList.remove("none") }
+        }
+
+        if (e.target === (d.querySelector(".next"))) {
+
+            $section.removeChild($section.lastElementChild)
+
+            search += 20;
+            console.info(search)
+            //location.reload()
+            getData(`https://pokeapi.co/api/v2/pokemon?offset=${search}&`)
+            if (search > 0) { d.querySelector(".prev").classList.remove("none") }
+
+            if (search === 1200) { d.querySelector(".next").classList.add("none") }
+
+        }
+    })
+
+
+    if (search <= 0) { d.querySelector(".prev").classList.add("none") }
+
+
+    d.addEventListener("DOMContentLoaded", e => {
+        getData(enlace)
+    })
+
+
+</script>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemones</title>
+
+    <style>
+        .pokemones {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pokemones con ajax</h1>
+    <main>
+        <span class="buttons">
+            <button class="prev">⏮️</button>
+
+            <button class="next">⏭️</button>
+        </span>
+        <section class="pokemones"></section>
+
+    </main>
+</body>
+<script>
+
+
+
+    const d = document,
+        $main = d.querySelector("main"),
+        xhr = new XMLHttpRequest,
+        $fragment = d.createDocumentFragment()
+
+    let search = 0
+
+
+
+
+    xhr.addEventListener("readystatechange", (e) => {
+        if (xhr.readyState !== 4) return;
+
+        if (xhr.status >= 200 && xhr.status < 300) {
+            let json = JSON.parse(xhr.response)
+
+
+            json = Object.entries(json)
+
+            let next = Object.keys(json[1]).map(function (key) { return json[1][key] }),
+                prev = Object.keys(json[2]).map(function (key) { return json[2][key] })
+            console.info(next, prev)
+
+            d.querySelector(".prev").setAttribute("data", `${prev[1]}`)
+            d.querySelector(".next").setAttribute("data", `${next[1]}`)
+
+            let pokemones = Object.keys(json[3]).map(function (key) { return json[3][key] })
+            pokemones = Object.keys(pokemones[1]).map(function (key) { return pokemones[1][key] })
+
+            //$main.innerHTML=json
+            //$template=d.createElement("template")
+            //$button=d.createElement("button")
+            //$button2=d.createElement("button")
+            //console.info(json)
+            //console.info(pokemones)
+            pokemones.forEach(el => {
+                const $figure = d.createElement("figure"),
+                    $img = d.createElement("img"),
+                    $figcaption = d.createElement("figcaption")
+
+                let regex = /(\d+)/g;
+                let enlace = el.url
+                let numero = enlace.match(regex)
+
+
+                $img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${numero[1]}.png`
+                $img.alt = `${el.name}`
+                $figcaption.innerHTML = `<p>${el.name}</p>`
+                //console.info(el.name)
+                //console.info($img.src)
+
+                $figure.appendChild($img)
+                $figure.appendChild($figcaption)
+
+
+
+
+                $fragment.appendChild($figure)
+                //console.log($figure)
+            })
+            console.log($fragment)
+            d.querySelector(".pokemones").appendChild($fragment)
+        } else {
+            let message = xhr.statusText || `Ocurrio un error`
+            $main.innerHTML = `<b> ERROR ${xhr.status}:${message}`
+        }
+    })
+
+    //xhr.open("GET",`https://pokeapi.co/api/v2/pokemon?offset=${search}&`)
+    //xhr.send()  
+
+
+
+    d.addEventListener("click", (e) => {
+        if (e.target === (d.querySelector(".prev"))) {
+
+            search -= 20;
+            console.info(search)
+
+            xhr.open("GET", `https://pokeapi.co/api/v2/pokemon?offset=${search}&limit=`)
+            xhr.send()
+
+            location.reload()
+        }
+        if (e.target === (d.querySelector(".next"))) {
+
+            search += 20;
+            console.info(search)
+            //location.reload()
+            xhr.open("GET", `https://pokeapi.co/api/v2/pokemon?offset=${search}&`)
+            xhr.send()
+
+        }
+    })
+
+    console.info(search)
+
+    d.addEventListener("DOMContentLoaded", (e) => {
+        if (search === 0) {
+            //d.querySelector(".prev").style.setProperty("display","none")
+            xhr.open("GET", `https://pokeapi.co/api/v2/pokemon?offset=${search}&`)
+            xhr.send()
+            console.info(d.querySelector(".next").hasAttribute("data"))
+
+        } else {
+            d.querySelector(".prev").style.setProperty("display", "visible")
+        }
+
+    })
+
+
+
+   // async function getData(){
+   //     try{
+   //      let res= await fetch("https://pokeapi.co/api/v2/pokemon"),
+   //      json=await res.json()
+//
+   //      json= Object.entries(json)
+   //         let pokemones=Object.keys(json[3]).map(function (key) {return json[3][key]})
+   //         pokemones=Object.keys(pokemones[1]).map(function (key) {return pokemones[1][key]})
+   //
+   //
+   //         $button=d.createElement("button")
+   //         $button2=d.createElement("button")
+   //         console.info(json)
+   //         console.info(pokemones)
+   //         pokemones.forEach(el=>{
+   //
+   //             const $figure= d.createElement("figure"),
+   //             $img= d.createElement("img"),
+   //             $figcaption= d.createElement("figcaption")
+   //
+   //             let regex=/(\d+)/g;
+   //             let enlace= el.url
+   //             let numero=enlace.match(regex)
+   //
+//
+   //             $img.src=`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${numero[1]}.png`
+   //             $img.alt=`${el.name}`
+   //             $figcaption.innerHTML=`<p>${el.name}</p>`
+   //
+   //
+   //             $figure.appendChild($img)
+   //             $figure.appendChild($figcaption)
+   //
+   //
+   //
+   //             let $clone=d.importNode($template,true);
+   //             $fragment.appendChild($figure)
+   //             console.info($fragment)
+   //         })
+//
+   //         $main.appendChild($fragment)
+//
+//
+   //     }catch{
+//
+//
+   //     }finally{
+//
+//
+   //     }
+   // }
+  //
+   //d.addEventListener("DOMContentLoaded",getData)
+
+</script>
+
+</html>
