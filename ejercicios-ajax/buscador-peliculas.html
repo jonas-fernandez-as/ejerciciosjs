@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscador</title>
+</head>
+<style>
+  html {
+    text-align: center;
+  }
+
+  .movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-content: center;
+    text-align: center;
+
+  }
+
+  .movies article {
+    margin: 1.5rem;
+    border: 1px solid #000
+  }
+
+  .movies p {
+    padding: 1rem
+  }
+</style>
+
+<body>
+  <h1>Buscador de series</h1>
+  <main>
+    <input class="searcher" name="searcher" type="search" placeholder="Search content...">
+    <section class="movies"></section>
+  </main>
+
+  <script>
+    const d = document,
+      $section = d.querySelector(".movies"),
+      $searcher = d.querySelector(".searcher"),
+      item = "https://api.tvmaze.com/search/shows?q=spiderman",
+      //$template=d.createElement("template")
+      $fragment = d.createDocumentFragment()
+    async function getMovie(url) {
+      try {
+
+        res = await fetch(url),
+          json = await res.json()
+        //console.info(json)
+
+        for (let i = 0; i < json.length; i++) {
+          //console.log(json[i])
+          show = Object.keys(json[i]).map(function (key) { return json[i][key] })
+          //console.info(show)
+          let $article = d.createElement("article")
+
+
+          if ((show[1].image) == undefined) {
+            $article.innerHTML = `
+            <h2>${show[1].name}</h2>
+            <img src="" alt="${show[1].name}" >
+            ${show[1].summary}
+            <a href="${show[1].url}" target="_blank" rel="noopener">Ver mas</a>`
+
+          } else {
+
+            $article.innerHTML = `
+            <h2>${show[1].name}</h2>
+            <img src="${show[1].image.medium}" alt="${show[1].name}" >
+            ${show[1].summary}
+            <a href="${show[1].url}" target="_blank" rel="noopener">Ver mas</a>`
+          }
+
+          $article.classList.add("show")
+
+          $fragment.appendChild($article);
+         // console.info(show);
+
+        }
+        $section.appendChild($fragment)
+
+      } catch (error) {
+
+      }
+
+    }
+
+    d.addEventListener("keyup", e => {
+      //if(e.target === $searcher){
+
+      //}
+      if (e.keyCode == '13') {
+        let $chows = d.querySelectorAll(".show")
+
+        $chows.forEach(el => {
+          $section.removeChild($section.lastElementChild)
+        });
+
+       // console.info($searcher.value)
+        getMovie(`https://api.tvmaze.com/search/shows?q=${$searcher.value}`)
+
+       // console.info($chows)
+      }
+    })
+
+
+  </script>
+</body>
+
+</html>
