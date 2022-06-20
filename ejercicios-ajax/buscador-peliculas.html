@@ -8,10 +8,12 @@
   <title>Buscador</title>
 </head>
 <style>
+  
+  
   html {
     text-align: center;
   }
-
+  
   .movies {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -28,12 +30,15 @@
   .movies p {
     padding: 1rem
   }
+  .loader{
+    text-align: center;
+  }
 </style>
 
 <body>
   <h1>Buscador de series</h1>
   <main>
-    <input class="searcher" name="searcher" type="search" placeholder="Search content...">
+    <input class="searcher"  type="search" placeholder="Busca tu show..">
     <section class="movies"></section>
   </main>
 
@@ -41,15 +46,17 @@
     const d = document,
       $section = d.querySelector(".movies"),
       $searcher = d.querySelector(".searcher"),
-      item = "https://api.tvmaze.com/search/shows?q=spiderman",
+      item = "https://api.tvmaze.com/search/shows?q=",
       //$template=d.createElement("template")
       $fragment = d.createDocumentFragment()
     async function getMovie(url) {
       try {
-
+        $section.innerHTML= `<img class="loader" src="./ashet/tail-spin.svg" alt="loading..">`;
         res = await fetch(url),
           json = await res.json()
         //console.info(json)
+        
+        if(!res.ok) throw {status:res.status,statusText:res,statusText}
 
         for (let i = 0; i < json.length; i++) {
           //console.log(json[i])
@@ -74,16 +81,23 @@
             <a href="${show[1].url}" target="_blank" rel="noopener">Ver mas</a>`
           }
 
-          $article.classList.add("show")
-
+          
+          $section.innerHTML=""
           $fragment.appendChild($article);
          // console.info(show);
 
         }
+        
+        //d.querySelector(".loader").classList("display","none")
         $section.appendChild($fragment)
 
-      } catch (error) {
-
+        
+        
+        
+      }catch(err){
+        console.log(err);
+        let message=err.statusText||"Ocurrio un error"
+        $section.innerHTML=`<p>Error ${err.status}:${message}</p>`
       }
 
     }

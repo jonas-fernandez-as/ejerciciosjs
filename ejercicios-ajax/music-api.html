@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api musica</title>
+  <style>
+    img {
+      width: 50%;
+      height: auto;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+
+    }
+
+    h1 {
+      text-align: center
+    }
+
+    .art {
+      margin: 5vw 10vw;
+    }
+
+    .artista {
+      margin: 1rem
+    }
+
+    .artista h2 {
+      text-align: center;
+    }
+
+    .letra {
+      margin: 1rem
+    }
+
+    .loader {
+      width: 4rem;
+      height: 4rem;
+      margin-left: 40vw
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Api musica</h1>
+    <form class="input-container">
+      <input id="artist" type="search" placeholder="Artista..">
+      <br>
+      <input id="song" type="search" placeholder="Cancion..">
+      <br><br>
+      <input id="submit" type="submit" value="Enviar">
+    </form>
+    <div class="grid-container">
+      <section class="artista">
+
+      </section>
+      <section class="letra">
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const d = document,
+      $artistInput = d.getElementById("artist"),
+      $songtInput = d.getElementById("song"),
+      $inputContainer = d.querySelector(".input-container"),
+      $inputSubmit = d.getElementById("submit"),
+      $sectionArtist = d.querySelector(".artista"),
+      $sectionLetter = d.querySelector(".letra")
+
+
+
+    d.addEventListener("submit", async e => {
+      e.target === ($inputSubmit)
+      e.preventDefault()
+      //alert("funciona")
+      let artistValue = $artistInput.value.toLowerCase(),
+        songValue = $songtInput.value.toLowerCase()
+      $sectionArtist.innerHTML = ""
+      $sectionLetter.innerHTML = ""
+
+      try {
+        $sectionArtist.innerHTML = `<img class="loader" src="./ashet/tail-spin.svg" alt="loading..">`
+        let res = await fetch(`https://api.lyrics.ovh/v1/${artistValue}/${songValue}`),
+          song = await res.json()
+
+        console.info(song)
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+
+        else {
+          $sectionArtist.innerHTML = ""
+          $sectionLetter.innerHTML = `<pre>${song.lyrics}</pre>`
+
+
+        }
+      } catch (err) {
+        let message = err.statusText || "Ocurrio un error"
+        $sectionLetter.innerHTML = `<p>${err.status}:${message}</p>`
+
+      }
+
+
+
+      try {
+        let res = await fetch(`https://theaudiodb.com/api/v1/json/2/search.php?s=${artistValue}`),
+          artist = await res.json()
+        console.info(artist, artist.artists[0].strArtist)
+
+        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+
+
+        else {
+
+          $sectionArtist.innerHTML = `
+   <div>
+   <h2>${artist.artists[0].strArtist}</h2>
+   <img class="art" src="${artist.artists[0].strArtistThumb}" alt="${artist.artists[0].strArtist}"">
+   <div>
+    <p>${artist.artists[0].strCountry}</p>
+    <br>
+    <p>${artist.artists[0].strGenre}</p>
+    <br>
+    <p>${artist.artists[0].strStyle}</p>
+    <br>
+    <p>${artist.artists[0].intFormedYear}/${artist.artists[0].intDiedYear || " -"}</p>
+    <br>
+    <p>${artist.artists[0].strBiographyEN}</p>
+    <br>
+    <a href="${artist.artists[0].strWebsite}" target="_blank" rel="noopener">Sitio web</a>
+    </div>`
+        }
+
+      } catch (err) {
+        let message = err.statusText || "Ocurrio un error"
+        $sectionArtist.innerHTML = `<p>${err.status}:${message}</p>`
+      };
+
+
+    })
+
+
+  </script>
+</body>
+</div>
+
+</html>
