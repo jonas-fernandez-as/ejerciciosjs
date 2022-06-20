@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Selects anidados</title>
+</head>
+
+<body>
+ <main>
+  <h1>Selects anidados</h1>
+  <h2>Mexico</h2>
+  <div>
+   <p>Estados</p>
+   <select name="estados" id="estados">
+    <option value="Estado">Elige un estado</option>
+   </select>
+  </div>
+
+  <div>
+   <p>Municipios</p>
+   <select name="municipios" id="municipios">
+    <option value="municipio">Elige un municipio</option>
+   </select>
+  </div>
+
+ </main>
+ <script>
+
+  const d = document,
+   $estados = d.getElementById("estados"),
+   $municipios = d.getElementById("municipios");
+
+  d.addEventListener("DOMContentLoaded", async e => {
+   try {
+
+    let res = await fetch("https://api.copomex.com/query/get_estados?token=1ccd4737-5cdc-44cb-87eb-066d63bcf7d3"),
+     json = await res.json()
+    //console.info(res,json)
+    //console.info(json.response.estado)
+
+    if (!res.ok) throw { statusText: res.statusText, status: res.satatus }
+
+
+    else {
+
+     //console.info(json.response.estado)
+     let estados = json.response.estado
+
+     estados.forEach(el => {
+      let $option = d.createElement("option")
+      $option.value = el
+      $option.textContent = el
+      $estados.insertAdjacentElement("beforeend", $option)
+      console.info($option)
+     });
+
+     d.addEventListener("change", async e => {
+      if (e.target === $estados) {
+       try {
+        let estado = e.target.value
+        res = await fetch(`https://api.copomex.com/query/get_municipio_por_estado/${estado}?token=1ccd4737-5cdc-44cb-87eb-066d63bcf7d3`)
+        json = await res.json()
+        console.info(res, json)
+
+        $municipios.innerHTML = ""
+        $municipios.innerHTML = `
+      <option value="municipio">Elige un municipio</option>
+      `
+
+        if (!res.ok) throw { statusText: res.statusText, status: res.satatus }
+
+        let municipios = json.response.municipios
+
+        municipios.forEach(el => {
+         let $option = d.createElement("option")
+         $option.value = el
+         $option.textContent = el
+         $municipios.insertAdjacentElement("beforeend", $option)
+        })
+       } catch (err) {
+        let message = err.textContent || "Ocurrio un error"
+        alert(`Error${err.status}:${message}`)
+
+       }
+
+      }
+     })
+    }
+
+
+   } catch (err) {
+    let message = err.textContent || "Ocurrio un error"
+    alert(`Error${err.status}:${message}`)
+   }
+
+  })
+ </script>
+</body>
+
+</html>
