@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Interfaz basada en el estado</title>
+</head>
+<body>
+ <h1>Interfaz basada en el estado</h1>
+ <form id="todo-form">
+  <input type="text" id="todo-item" placeholder="tarea por hacer">
+  <input type="submit" value="Agregar">
+ </form>
+ <h2>Lista de tareas</h2>
+ <ul id="todo-list"></ul>
+ <script>
+ const d=document
+ 
+ //el State(el estado)
+ const state={
+  todoList:[]
+ }
+
+
+ //TEMPLATE UI
+ const template =()=>{
+  if(state.todoList.length<1){
+  return `<p> <em> Lista sin tareas por hacer </p> </em>`
+  }
+
+  let todos= state.todoList.map(item=> `<li>${item}</li>`).join("");
+  return todos
+ }
+ //Render UI
+ const render=()=>{
+  console.log(state);
+
+  const $list =d.getElementById("todo-list");
+  if(!$list)return;
+  $list.innerHTML= template();
+ }
+
+ d.addEventListener("DOMContentLoaded",render)
+
+ d.addEventListener("submit",e=>{
+  if(!e.target.matches("#todo-form"))return false;
+
+  e.preventDefault();
+
+  
+  
+  const $item=d.getElementById("todo-item")
+
+  if(!$item)return;
+  
+  //Actualizar el state y la UI
+  state.todoList(Push($item.value));
+  render();
+
+  $item.value="";
+  $item.focus();
+
+ })
+
+ </script>
+</body>
+</html>
