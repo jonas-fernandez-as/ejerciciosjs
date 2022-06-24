@@ -1,5 +1,10 @@
+import api from "./helpers/wp_api.js"
 import { App } from "./App.js";
 
-const d = document;
 
-d.addEventListener("DOMContentLoaded",App);
+
+document.addEventListener("DOMContentLoaded",App);
+window.addEventListener("hashchange",async ()=>{
+ api.page=1;
+ App()
+})
