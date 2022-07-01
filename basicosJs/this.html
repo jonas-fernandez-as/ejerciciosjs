@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>This en javacript</title>
+</head>
+<body>
+ <h1>This en Javascript</h1>
+
+
+<script>
+//*******************************************************************++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// THIS EN JAVASCRIPT
+
+/*
+Cada funcion crea su scoope o contexto, entonces
+cuando se hace referencia a this toma como referencia el scoope
+de la funcion o del elemento window.
+Si la variable no existe en la funcion toma como referencia
+el contexto global y lo retorna COMO SE VE EN EL ULTIMO EJEMPLO DE ESTA SERIE.
+
+Si bien el contexto es this. de la funcion la variable this.nombre no existe en 
+el contexto de la funcion dentro de la funcion (referencia a funcion constructora Persona)
+*/
+
+
+/*
+console.log(this)
+console.log(window)
+console.log(this === window)
+
+this.nombre="Contexto Global"
+console.log(this.nombre)
+
+function imprimir(){
+  console.log(this.nombre);
+}
+
+imprimir()
+
+
+const obj={
+  nombre:"Contexto objeto",
+  imprimir:function(){
+    console.log(this.nombre)
+  }
+}
+
+obj.imprimir()
+
+const obj2={
+  nombre:"Contexto objeto2",
+  imprimir
+  }
+
+obj2.imprimir()
+
+
+const obj3={
+  nombre:"Contexto objeto",
+  imprimir:()=>{
+    console.log(this.nombre)
+  }
+}
+
+obj3.imprimir()
+
+
+function Persona(nombre){
+  this.nombre=nombre
+  
+  return function(){
+    (console.log(this.nombre, 22))
+    }
+  }
+let jon = new Persona("JOn")
+
+jon()
+;
+*/
+//*******************************************************************++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CALL APPLY BLIND
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script> 
+</body>
+</html>
